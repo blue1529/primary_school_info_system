@@ -1,0 +1,16 @@
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Environment files (important for security)
+.env
+
+# Logs
+*.log
+
+# Composer dependencies (if you use composer)
+vendor/
+
+# Cache files
+cache/
+tmp/

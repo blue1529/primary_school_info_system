@@ -9,7 +9,11 @@ Below is the code for the database(MySQL) that will be used in this project:
 
 --DATABASE SCHEMA FOR PRIMARY SCHOOL INFORMATION SYSTEM
 -- This schema defines the structure of the database for a primary school information system. It includes tables for standards, students, parents/guardians, teachers, classes, terms, enrollments, attendance, and grades.
+<<<<<<< HEAD
 
+=======
+```
+>>>>>>> 5ca87b0 (Added missing name)
 CREATE DATABASE IF NOT EXISTS primary_school_info_system;
 USE primary_school_info_system;
 
@@ -129,6 +133,10 @@ CREATE TABLE Grade (
     FOREIGN KEY (class_id) REFERENCES Class(class_id) ON DELETE CASCADE,
     FOREIGN KEY (term_id) REFERENCES Term(term_id)
 );
+<<<<<<< HEAD
+=======
+```
+>>>>>>> 5ca87b0 (Added missing name)
 >>>>>>> a16bb42 (db creation and teacher reg creation)
 =======
 This repository contains files from group one concerning a web development project about a primary school information system which will be created by group one members
@@ -145,5 +153,10 @@ GOMEGZANI
 DIANA DUNCAN
 HAROON
 VIVIAN
+<<<<<<< HEAD
+=======
+MIKE
+
+>>>>>>> 5ca87b0 (Added missing name)
 
 >>>>>>> 6d3ad3d (added login page with html, php and sql)

@@ -1,17 +1,7 @@
-<<<<<<< HEAD
-# primary_school_info_system
-This repository contains files from group one concerning a web development project about a primary schol information system which will be created by group one members
-=======
-Hello There!!
-
-Below is the code for the database(MySQL) that will be used in this project:
-
 --DATABASE SCHEMA FOR PRIMARY SCHOOL INFORMATION SYSTEM
 -- This schema defines the structure of the database for a primary school information system. It includes tables for standards, students, parents/guardians, teachers, classes, terms, enrollments, attendance, and grades.
-
 CREATE DATABASE IF NOT EXISTS primary_school_info_system;
 USE primary_school_info_system;
-
 -- 1. class
 CREATE TABLE Standard (
     standard_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -29,6 +19,7 @@ CREATE TABLE Student (
     address VARCHAR(200),
     FOREIGN KEY (current_standard_id) REFERENCES Standard(standard_id)
 );
+
 -- 2.1 Parent/Guardian
 CREATE TABLE ParentGuardian (
     parent_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -65,7 +56,6 @@ CREATE TABLE TeacherPhoto (
     PRIMARY KEY (teacher_id),
     FOREIGN KEY (teacher_id) REFERENCES Teacher(teacher_id) ON DELETE CASCADE
 );
-
 -- 4. Class
 CREATE TABLE Class (
     class_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -128,4 +118,3 @@ CREATE TABLE Grade (
     FOREIGN KEY (class_id) REFERENCES Class(class_id) ON DELETE CASCADE,
     FOREIGN KEY (term_id) REFERENCES Term(term_id)
 );
->>>>>>> a16bb42 (db creation and teacher reg creation)

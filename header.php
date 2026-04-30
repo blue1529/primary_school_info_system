@@ -8,16 +8,42 @@
 </head>
 <body>
 
-            <div class="header">
-                    <div class="one">
-                        <p class="app_title">ZENITH ACADEMY</p>
-                    </div>
+<header class="header">
 
-                    <div class="two">
-                        <a href="index.php" class="header_items">Home</a> &nbsp;
-                        <a href="index.php" class="header_items">Home</a> &nbsp;
-                        <a href="index.php" class="header_items">Home</a> &nbsp;
-                    </div>
-            </div>
+    <div class="nav-left">
+        <div class="hamburger" onclick="toggleMenu()">
+            ☰
+        </div>
+    </div>
+
+    <div class="nav-center">
+        <img src="https://via.placeholder.com/60" class="logo" alt="School Logo">
+        <p class="school-name">ZENITH ACADEMY</p>
+    </div>
+
+    <div class="nav-right" id="navMenu">
+        <a href="#"><button>Home</button></a>
+        <a href="#"><button>Log-in</button></a>
+        <a href="#"><button>Sign-up</button></a>
+    </div>
+
+</header>
+
+<section class="hero">
+    <div class="about">
+        <h1>About Zenith Academy</h1>
+        <p>
+            Zenith Academy is committed to excellence in education, 
+            empowering students with knowledge, discipline, and innovation 
+            to succeed in the modern world.
+        </p>
+    </div>
+</section>
+
+<footer class="footer">
+    <p>© 2026 Zenith Academy | All Rights Reserved</p>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>

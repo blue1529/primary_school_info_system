@@ -1,0 +1,148 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+.parent {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    height: 100%; /* for full height */
+    background-image: linear-gradient(to right,#23CFC3, #006FFF );
+    padding: 0;
+    margin: 0;
+}
+
+/* full stretch of the top */
+.header {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
+    
+}
+/* h1{
+    justify-content: center;
+} */
+
+/* Bottom section */
+.main {
+    display: flex;
+    flex: 1;
+    gap: 8px;
+}
+
+/* navigation bar */
+.parent-sidebar {
+    flex: 1;
+}
+.child-sidebar{
+    list-style-type: none;
+
+}
+li{
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    font-size:5vh;
+    /* background-image:linear-gradient(to top, rgb(143, 143, 184), white); */
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.side_btn{
+    width: 100%;
+    padding: 15px;
+    font-size: 3vh;
+    font-weight: bolder;
+    border: none;
+    border-radius: 8px;
+    background-image: radial-gradient(circle, white, #94BBE9);
+    cursor: pointer;
+    transition: all 0.3s ease ;
+}
+li .side_btn:hover{
+    background-image: radial-gradient(circle, rgb(196, 165, 165), #588ac4);
+    transform: scale(1.05);
+}
+
+/* large area on the right */
+.content {
+    display: flex;
+    flex-direction: column;   
+    align-items: center;      /* centers horizontally */
+    justify-content: flex-start; 
+    flex: 3;
+}
+.dashboard-img{
+    width: 80%;
+    height: 90%;
+    /* size-adjust: calc(); */
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+/* TEACHERS BUTTONS */
+ .teachers_buttons {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+.teachers_buttons button {
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: white;
+    color: #006FFF;
+    font-weight: bold;
+    transition: all 0.3s ease ;
+}
+
+.teachers_buttons button:hover {
+    background-color: #dbeafe;
+    transform: scale(1.05);
+}
+
+ .student_grades{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    
+}
+
+.student_grades button {
+    width: 200px;
+    height: 100px;
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: white;
+    color: #006FFF;
+    font-weight: bold;
+    transition: all 0.3s ease ;
+    
+}
+
+.student_grades button:hover {
+    background-color: #dbeafe;
+    transform: scale(1.05);
+}
+
+.side_btn.active {
+    background-image: radial-gradient(circle, #020024, #090979);
+    color:white;
+}
+.content h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+    font-size: 2rem;
+}

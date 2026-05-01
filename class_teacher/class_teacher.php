@@ -1,5 +1,5 @@
 <?php
-require("db.php");
+require("../db.php");
 
 $sql = "SELECT * FROM student";
 $result = mysqli_query($conn, $sql);
@@ -116,6 +116,11 @@ $result = mysqli_query($conn, $sql);
 
 function addStudent() {
     window.location.href = "add_student.php";
+}
+
+
+function grades() {
+    window.location.href = "grades.php";
 }
 
 function enterGrade(id) {

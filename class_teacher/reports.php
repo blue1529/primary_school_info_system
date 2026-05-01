@@ -1,5 +1,5 @@
 <?php
-$conn = mysqli_connect("localhost", "root", "", "school");
+require("../db.php");
 
 $id = $_GET['id'];
 

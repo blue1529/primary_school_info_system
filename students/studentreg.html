@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration</title>
+    <style>
+        h1{
+            text-align: center;  
+        }
+        body{
+            background: linear-gradient(to right,#e7dfdf,#86b3e6);
+        }
+        form{
+            background : linear-gradient(to left,#e7dfdf,#8ab4e4);
+            padding: 25px;
+            border-radius: 10px;
+            width: 80%;
+            margin: 7% ;
+        }
+       input{
+        border-color: #535f67; 
+        border-radius: 1px;
+       }
+        fieldset {
+            border: none;
+            background-color: rgba(0, 0, 0, 0.05);/*translucent*/
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+    </style>
+</head>
+<body> 
+    <h1> STUDENT REGISTRATION FORM</h1>
+    <form method="POST" action="">
+    <fieldset id="step1">
+       <legend> <b>Student details</b> </legend>
+        <label for="fname"> First Name : </label>
+        <input type="text" name="fname" id="fname" required> <br><br>
+        <label for="mname"> Middle Name : </label>
+        <input type="text" name="mname" id="mname"> <br><br>
+        <label for="sname"> Surname :</label>
+        <input type="text" name="sname" id="sname" required> <br><br>
+        <label for="enroll"> Enrollment Date :</label>
+        <input type="date" name="enroll" id="enroll" required> <br><br>
+        <label for="dob"> Date of Birth :</label>
+        <input type="date" name="dob" id="dob" required> <br><br>
+        <label> Gender :</label><br><br>
+        <input type="radio" name="gender" value="male" id="male" required>
+        <label for="male">Male</label>
+        <input type="radio" name="gender" value="female" id="female">
+        <label for="female">Female</label>             
+        <input type="radio" name="gender" value="none" id="none">
+        <label for="none">Rather not say</label><br><br>
+        <label for="residence">Home Village</label>
+        <input type="text" name="residence" id="residence" >  <br><br>
+        <label for="specialneeds"> Special Needs :</label><br>
+        <textarea name="specialneeds" id="specialneeds" placeholder="if any" rows="3" cols="40" style="border-color: #66c2ff; border-radius: 12px;"></textarea>
+        <br><br>
+        <button type="button" onclick="nextStep()"> next </button>
+    </fieldset>
+    <fieldset id="step2" style="display: none;">
+      <legend> <b>Parents Details</b> </legend>
+        <label for="pfname"> First Name : </label>
+        <input type="text" name="pfname" id="pfname" required> <br><br>
+
+        <label for="psname"> Surname :</label>
+        <input type="text" name="psname" id="psname" required> <br><br>
+        <label> Relationship with the child :</label><br><br>
+        <input type="radio" name="relationship" value="father" id="father" >
+        <label for="father">Father</label>
+        <input type="radio" name="relationship" value="mother" id="mother">
+        <label for="mother">Mother</label>
+        <input type="radio" name="relationship" value="relative" id="relative">
+        <label for="relative">Relative </label>  <br><br>
+        <label for="email">Email :</label>
+        <input type="email" name="email" id="email"  required>
+        <label for="phone">phone number :</label>
+        <input type="tel" name="phone" id="phone"  required><br><br>
+        <button type="button" onclick="prevStep()">Back</button> <br><br>
+        <input type="submit" name="Registration" id="registration" style="border-radius: 10px;" value="REGISTER">
+        <input type="reset" id="reset" style="border-radius: 10px;" value="CLEAR">
+    </fieldset><br>
+  </form>
+  <script>
+
+    function nextStep() {
+        const step1 = document.getElementById("step1");
+    // Get all required inputs inside step1
+    const inputs = step1.querySelectorAll("input[required]");
+    for (let input of inputs) {
+        if (!input.value) {
+            alert("Please fill in all required fields before proceeding.");
+            return;
+        }
+    }
+    // checking if one of the genders was selected 
+    const gender = document.querySelector('input[name="gender"]:checked');
+
+         if (!gender) {
+            alert("Please select a gender.");
+            return;
+        }
+    // If all fields are filled
+        step1.style.display = "none";
+        document.getElementById("step2").style.display = "block";
+    }
+    
+    function prevStep() {
+        document.getElementById("step1").style.display = "block";
+        document.getElementById("step2").style.display = "none";
+    }
+</script>
+</body>
+</html>

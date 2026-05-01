@@ -1,36 +1,31 @@
 body {
     margin: 0;
+    top: 0;
     font-family: Arial, sans-serif;
 }
 
 .header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    background: #173459;
+    background: #008081;
     color: white;
-    padding: 10px 20px;
-    position: relative;
-}
-
-.nav-left {
-    font-size: 28px;
-    cursor: pointer;
+    padding: 25px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    gap: 65%;
 }
 
 .nav-center {
     text-align: center;
 }
 
-.logo {
-    width: 50px;
-    display: block;
-    margin: auto;
-}
 
 .school-name {
     margin: 0;
     font-weight: bold;
+    font-size: 25px;
 }
 
 .nav-right {
@@ -39,33 +34,35 @@ body {
 }
 
 .nav-right button {
-    background: #05477e;
+    background-color: #173459;
     color: white;
     border: none;
-    padding: 8px 15px;
+    padding: 12px;
     cursor: pointer;
     border-radius: 5px;
+    font-size: 17px;
 }
 
 .nav-right button:hover {
-    background: #063d85;
+    background: #02367a;
 }
 
 .hero {
     height: 100vh;
-    background: url(Blueitems.jpg) no-repeat center/cover;
+    background: url() no-repeat center/cover;
     display: flex;
-    justify-content: center;
     align-items: center;
 }
 
 .about {
-    background: rgba(0, 0, 0, 0.5); /* transparent */
-    color: white;
-    padding: 30px;
-    border-radius: 10px;
-    max-width: 600px;
-    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    flex: 0 0 30%;
+    color: rgba(245, 245, 245, 0.904);
+    padding: 20px;
+    border-radius: 8px;
+    height: 40%;
+    margin-left: 60%;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.712);
 }
 
 
@@ -74,40 +71,4 @@ body {
     color: white;
     text-align: center;
     padding: 10px;
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-
-    /* hide buttons initially */
-    .nav-right {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        right: 10px;
-        background: #173459;
-        padding: 10px;
-        border-radius: 5px;
-    }
-
-    /* show when active */
-    .nav-right.active {
-        display: flex;
-    }
-
-    .nav-right button {
-        width: 100%;
-    }
-}
-
-/* SMALL PHONES */
-@media (max-width: 480px) {
-    .school-name {
-        font-size: 14px;
-    }
-
-    .logo {
-        width: 40px;
-    }
 }

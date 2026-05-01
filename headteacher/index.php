@@ -10,11 +10,12 @@
     <body>
         <div class="parent">
             <div class="header">
+                <button id="toggle_btn" class="toggle-btn">☰</button>
                 <h1>WELCOME</h1>
             </div>
 
             <div class="main">
-                <div class="parent-sidebar">
+                <div class="parent-sidebar" id="sidebar">
                     <ul class="child-sidebar">
                         <li><button class="side_btn"id="dashboard">Dashboard</button></li>
                         <li><button class="side_btn" id="std_details">Student details</button></li>

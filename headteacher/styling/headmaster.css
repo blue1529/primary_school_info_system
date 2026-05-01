@@ -1,148 +1,179 @@
-body{
+body {
     padding: 0;
     margin: 0;
+    height: 100vh;
+    overflow: hidden;
 }
+
 .parent {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    height: 100%; /* for full height */
-    background-image: linear-gradient(to right,#23CFC3, #006FFF );
+    height: 100vh;
+    background-image: linear-gradient(to right, #23CFC3, #006FFF);
     padding: 0;
     margin: 0;
 }
 
-/* full stretch of the top */
+/* Header */
 .header {
     display: flex;
-    justify-content: center;
-    padding-bottom: 10px;
-    
+    align-items: center;
+    padding: 10px 20px;
+    background: rgba(0, 0, 0, 0.15);
+    flex-shrink: 0;
 }
-/* h1{
-    justify-content: center;
-} */
 
-/* Bottom section */
+.toggle-btn {
+    font-size: 2.2rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 8px 12px;
+    margin-right: 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.toggle-btn:hover {
+    background: rgba(255,255,255,0.25);
+}
+
+/* Main Content Area */
 .main {
     display: flex;
     flex: 1;
     gap: 8px;
+    padding: 0 8px 8px 8px;
+    overflow: hidden;
 }
 
-/* navigation bar */
+/* ==================== SIDEBAR ==================== */
 .parent-sidebar {
-    flex: 1;
-}
-.child-sidebar{
-    list-style-type: none;
-
-}
-li{
-    padding-bottom: 20px;
-    margin-bottom: 30px;
-    font-size:5vh;
-    /* background-image:linear-gradient(to top, rgb(143, 143, 184), white); */
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-}
-.side_btn{
-    width: 100%;
+    flex: 0 0 280px;           /* Default width when visible */
+    transition: all 0.4s ease;
+    background: rgba(255,255,255,0.12);
+    border-radius: 12px;
     padding: 15px;
-    font-size: 3vh;
-    font-weight: bolder;
+    overflow: hidden;
+    min-width: 280px;
+}
+
+/* Completely hidden state */
+.parent-sidebar.hidden {
+    flex: 0 0 0;
+    min-width: 0;
+    padding: 0;
+    margin: 0;
+    width: 0;
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Collapsed but still slightly visible (optional - if you want hamburger only) */
+.parent-sidebar.collapsed {
+    flex: 0 0 70px;
+    min-width: 70px;
+    padding: 15px 8px;
+}
+
+/* Sidebar Menu */
+.child-sidebar {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.child-sidebar li {
+    margin-bottom: 12px;
+}
+
+.side_btn {
+    width: 100%;
+    padding: 14px 16px;
+    font-size: 1.1rem;
+    font-weight: bold;
     border: none;
     border-radius: 8px;
     background-image: radial-gradient(circle, white, #94BBE9);
     cursor: pointer;
-    transition: all 0.3s ease ;
-}
-li .side_btn:hover{
-    background-image: radial-gradient(circle, rgb(196, 165, 165), #588ac4);
-    transform: scale(1.05);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
 }
 
-/* large area on the right */
-.content {
-    display: flex;
-    flex-direction: column;   
-    align-items: center;      /* centers horizontally */
-    justify-content: flex-start; 
-    flex: 3;
+.side_btn:hover {
+    background-image: radial-gradient(circle, rgb(196, 165, 165), #588ac4);
+    transform: scale(1.03);
 }
-.dashboard-img{
-    width: 80%;
-    height: 90%;
-    /* size-adjust: calc(); */
+
+/* When sidebar is hidden or collapsed */
+.parent-sidebar.hidden .side_btn,
+.parent-sidebar.collapsed .side_btn {
+    justify-content: center;
+    font-size: 1.6rem;
+    padding: 12px 8px;
+}
+
+.side_btn.active {
+    background-image: radial-gradient(circle, #020024, #090979);
+    color: white;
+}
+/* ==================== CONTENT AREA ==================== */
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.dashboard-img {
+    width: 85%;
+    max-height: 85%;
     object-fit: cover;
     border-radius: 20px;
+    margin-top: 20px;
 }
 
-/* TEACHERS BUTTONS */
- .teachers_buttons {
-    display: flex;
-    gap: 30px;
-    justify-content: center;
-    align-items: center;
-}
-
-.teachers_buttons button {
-    padding: 15px 30px;
-    font-size: 1.5rem;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    background-color: white;
-    color: #006FFF;
-    font-weight: bold;
-    transition: all 0.3s ease ;
-}
-
-.teachers_buttons button:hover {
-    background-color: #dbeafe;
-    transform: scale(1.05);
-}
-
- .student_grades{
+/* Other existing sections */
+.teachers_buttons, .student_grades {
     display: flex;
     flex-wrap: wrap;
+    gap: 25px;
     justify-content: center;
-    align-items: center;
-    gap: 30px;
-    width: 100%;
-    
+    margin-top: 20px;
 }
 
+.teachers_buttons button,
 .student_grades button {
-    width: 200px;
-    height: 100px;
     padding: 15px 30px;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     border: none;
     border-radius: 10px;
     cursor: pointer;
     background-color: white;
     color: #006FFF;
     font-weight: bold;
-    transition: all 0.3s ease ;
-    
+    transition: all 0.3s ease;
 }
 
+.teachers_buttons button:hover,
 .student_grades button:hover {
     background-color: #dbeafe;
     transform: scale(1.05);
 }
 
-.side_btn.active {
-    background-image: radial-gradient(circle, #020024, #090979);
-    color:white;
-}
 .content h3 {
     text-align: center;
-    margin-bottom: 20px;
+    margin: 15px 0 25px 0;
     color: white;
     font-size: 2rem;
 }

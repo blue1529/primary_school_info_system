@@ -129,9 +129,10 @@ $students = mysqli_query($conn, "
 
 //fetch grades
 $grades = mysqli_query($conn, "
-    SELECT g.*, s.first_name, s.last_name 
-    FROM grades g
-    JOIN student s ON g.student_id = s.student_id
+   SELECT g.*, s.first_name, s.last_name 
+FROM grades g
+JOIN student s ON g.student_id = s.student_id
+ORDER BY g.total DESC
 ");
 ?>
 

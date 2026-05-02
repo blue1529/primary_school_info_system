@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-$conn = mysqli_connect("localhost", "root", "", "school");
+$conn = mysqli_connect("localhost", "root", "", "primary_school_info_system");
 
 if (isset($_POST['login'])) {
 

@@ -28,6 +28,17 @@
             border-radius: 10px;
             padding: 20px;
         }
+        select {
+            border-radius: 50px;
+            padding: 10px 20px;
+            border: 2px solid #66c2ff;
+            background-color: white;
+            outline: none;
+        }
+
+        select:focus {
+            border-color: #3399ff;
+        }
 
     </style>
 </head>
@@ -37,15 +48,27 @@
     <fieldset id="step1">
        <legend> <b>Student details</b> </legend>
         <label for="fname"> First Name : </label>
-        <input type="text" name="fname" id="fname" required> <br><br>
+        <input type="text" name="fname" id="fname" required>&nbsp; 
         <label for="mname"> Middle Name : </label>
-        <input type="text" name="mname" id="mname"> <br><br>
+        <input type="text" name="mname" id="mname">&nbsp;
         <label for="sname"> Surname :</label>
         <input type="text" name="sname" id="sname" required> <br><br>
         <label for="enroll"> Enrollment Date :</label>
         <input type="date" name="enroll" id="enroll" required> <br><br>
         <label for="dob"> Date of Birth :</label>
         <input type="date" name="dob" id="dob" required> <br><br>
+        <label for="class"> class </label>
+        <select name="class" id="class" required>
+            <option value="">--Select Class--</option>
+            <option value="1">Class 1</option>
+            <option value="2">Class 2</option>
+            <option value="3">Class 3</option>
+            <option value="4">Class 4</option>
+            <option value="5">Class 5</option>
+            <option value="6">Class 6</option>
+            <option value="7">Class 7</option>
+            <option value="8">Class 8</option>
+       </select><br><br>
         <label> Gender :</label><br><br>
         <input type="radio" name="gender" value="male" id="male" required>
         <label for="male">Male</label>
@@ -53,10 +76,43 @@
         <label for="female">Female</label>             
         <input type="radio" name="gender" value="none" id="none">
         <label for="none">Rather not say</label><br><br>
-        <label for="residence">Home Village</label>
-        <input type="text" name="residence" id="residence" >  <br><br>
+        <label for="residence">Home District</label>
+        <select name="residence" id="residence" required>
+            <option value="">--Select District--</option>
+            <option>Balaka</option>
+            <option>Blantyre</option>
+            <option>Chikwawa</option>
+            <option>Chiradzulu</option>
+            <option>Chitipa</option>
+            <option>Dedza</option>
+            <option>Dowa</option>
+            <option>Karonga</option>
+            <option>Kasungu</option>
+            <option>Likoma</option>
+            <option>Lilongwe</option>
+            <option>Machinga</option>
+            <option>Mangochi</option>
+            <option>Mchinji</option>
+            <option>Mulanje</option>
+            <option>Mwanza</option>
+            <option>Mzimba</option>
+            <option>Mzuzu</option>
+            <option>Neno</option>
+            <option>Nkhatabay</option>
+            <option>Nkhotakota</option>
+            <option>Nsanje</option>
+            <option>Ntcheu</option>
+            <option>Ntchisi</option>
+            <option>Phalombe</option>
+            <option>Rumphi</option>
+            <option>Salima</option>
+            <option>Thyolo</option>
+            <option>Zomba</option>
+        </select><br><br> 
         <label for="specialneeds"> Special Needs :</label><br>
-        <textarea name="specialneeds" id="specialneeds" placeholder="if any" rows="3" cols="40" style="border-color: #66c2ff; border-radius: 12px;"></textarea>
+        <textarea name="specialneeds" id="specialneeds" placeholder="if any" rows="3" cols="40" style="border-color: #66c2ff; border-radius: 12px;"></textarea><br><br>
+        <label for="postal address"> postal address :</label><br>
+        <textarea name="postaladdress" id="paddress" rows="3" cols="40" style="border-color: #66c2ff; border-radius: 12px;"></textarea>
         <br><br>
         <button type="button" onclick="nextStep()"> next </button>
     </fieldset>

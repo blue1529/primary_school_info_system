@@ -29,10 +29,7 @@ CREATE TABLE Attendance (
     date DATE NOT NULL,
     status VARCHAR(15) NOT NULL,         -- 'Present', 'Absent', 'Late'
     remarks VARCHAR(200),
-    FOREIGN KEY (student_id) REFERENCES Student(student_id) ON DELETE CASCADE,
-    FOREIGN KEY (class_id) REFERENCES Class(class_id) ON DELETE CASCADE,
-    FOREIGN KEY (term_id) REFERENCES Term(term_id),
-    UNIQUE KEY (student_id, class_id, term_id, date)
+    FOREIGN KEY (student_id) REFERENCES student(student_id) ON DELETE CASCADE
     );
     
     CREATE TABLE student (
@@ -71,7 +68,7 @@ CREATE TABLE grades (
     grade VARCHAR(5),
     status VARCHAR(10),
 
-    FOREIGN KEY (student_id) REFERENCES students(student_id)
+    FOREIGN KEY (student_id) REFERENCES student(student_id)
 );
 
 CREATE TABLE users (

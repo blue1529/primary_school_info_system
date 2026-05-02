@@ -79,6 +79,6 @@ CREATE TABLE users (
     username VARCHAR(50),
     email VARCHAR(100),
     password VARCHAR(255),
-    role VARCHAR(20),   -- 'teacher' or 'headmaster'
-    class INT NULL      -- NULL for headmaster
+    role VARCHAR(20),   -- 'teacher'
+    class INT NULL
 );

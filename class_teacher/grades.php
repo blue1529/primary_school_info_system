@@ -171,6 +171,11 @@ if ($user['role'] == "teacher") {
 
 <body>
 
+
+<div>
+    <button style="width: 12%; background: black" onclick="returnteacher()">GO BACK</button>
+</div>
+
 <div class="container">
 
 <h2>Enter Grades</h2>
@@ -218,7 +223,7 @@ if ($user['role'] == "teacher") {
     ?>
 </select>
 
-    <!-- TERM -->
+
     <select name="term" required>
         <option value="">Select Term</option>
         <option>1</option>
@@ -226,7 +231,6 @@ if ($user['role'] == "teacher") {
         <option>3</option>
     </select>
 
-    <!-- SUBJECTS -->
      <input type="number" name="mathematics" placeholder="Mathematics" required
 value="<?php echo $edit_mode ? $edit_data['mathematics'] : ''; ?>">
 <input type="number" name="english" placeholder="english" required
@@ -297,7 +301,7 @@ value="<?php echo $edit_mode ? $edit_data['computer'] : ''; ?>">
 </div>
 
 
-<!-- MODAL -->
+<!-- modal -->
 <div id="reportModal" style="
 display:none;
 position:fixed;
@@ -332,7 +336,14 @@ position:relative;
 
 function closeModal() {
     document.getElementById("reportModal").style.display = "none";
+
+    
 }
+
+function returnteacher() {
+    window.location.href = "class_teacher.php";
+}
+
 </script>
 
 </body>

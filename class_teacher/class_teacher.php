@@ -5,6 +5,7 @@ require("../db.php");
 //add ku teachers too
 session_start();
 
+
 if (!isset($_SESSION['user'])) {
     header("Location: login.php");
     exit();
@@ -64,11 +65,9 @@ if ($user['role'] == "teacher") {
     </div>
 </div>
 
-<!-- MAIN -->
 <div class="main">
 
-    <!-- DASHBOARD -->
-    <div class="dashboard">
+        <div class="dashboard">
 
         <div class="card">
             <h3>Pass vs Fail</h3>

@@ -1,0 +1,156 @@
+body {
+    margin: 0;
+    top: 0;
+    font-family: Arial, sans-serif;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    background: #008081;
+    color: white;
+    padding: 25px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    gap: 65%;
+}
+
+.nav-center {
+    text-align: center;
+}
+
+
+.school-name {
+    margin: 0;
+    font-weight: bold;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    letter-spacing: 1px;
+}
+
+.nav-right {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-right button {
+    background-color: #173459;
+    color: white;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 17px;
+}
+
+.nav-right button:hover {
+    background: #02367a;
+}
+
+.hero {
+    height: 100vh;
+    background: url("girl.jpg") no-repeat center/cover;
+    display: flex;
+    align-items: center;
+}
+
+.about {
+    background: rgba(34, 30, 30, 0.541);
+    flex: 0 0 30%;
+    color: black;
+    padding: 20px;
+    border-radius: 8px;
+    height: 40%;
+    margin-left: 6%;
+    font-size: 17px;
+    line-height: 1.8;
+    color: whitesmoke;
+    padding-bottom: 40px;
+    font-weight: bolder;
+}
+.about p {
+    font-family: 'Poppins', Arial, sans-serif;
+
+}
+
+
+.footer {
+    background: #173459;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+
+/* NAV RIGHT ALIGNMENT */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* BUTTONS */
+.nav-right button {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 6px;
+    background: #27ae60;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.nav-right button:hover {
+    background: #2ecc71;
+}
+
+/* DROPDOWN CONTAINER */
+.dropdown {
+    position: relative;
+}
+
+/* DROPDOWN MENU */
+.dropdown-content {
+    position: absolute;
+    top: 110%;
+    right: 0;
+    background: rgb(211, 236, 243);
+    min-width: 220px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    z-index: 100;
+    color: black;
+}
+
+/* SHOW DROPDOWN ON HOVER */
+.dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* DROPDOWN ITEMS */
+.dropdown-content p {
+    padding: 12px;
+    margin: 0;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+    color: black;
+}
+
+.dropdown-content p:last-child {
+    border-bottom: none;
+}
+
+/* HOVER EFFECT ON ITEMS */
+.dropdown-content p:hover {
+    background: #75c6ee;
+}

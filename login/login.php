@@ -16,14 +16,21 @@ if (isset($_POST['login'])) {
 
         // CHECK CLASS FOR TEACHER
         if ($user['role'] == "teacher" && $user['class'] != $class) {
-            echo "❌ Wrong class";
+            echo "Wrong class";
         } else {
 
             $_SESSION['user'] = $user;
+                    if ($user['role'] == "headmaster") {
+            header("Location:../headteacher/headteacher.php");
+        } else {
             header("Location: ../class_teacher/class_teacher.php");
         }
+        exit();
+
+
+        }
     } else {
-        echo "❌ Invalid login";
+        echo "Invalid login";
     }
 }
 ?>
@@ -38,9 +45,13 @@ input { width:100%; padding:8px; margin:5px 0; }
 button { width:100%; padding:10px; background:#2980b9; color:white; border:none; }
 </style>
 </head>
-<body>
+<body style="background: #008181">
 
-<div class="form">
+<div>
+    <button style="width: 12%; background: black" onclick="returnhome()">GO BACK</button>
+</div>
+
+<div class="form" >
 <h2>Login</h2>
 
 <form method="POST">
@@ -51,5 +62,13 @@ button { width:100%; padding:10px; background:#2980b9; color:white; border:none;
 </form>
 </div>
 
+
+<script>
+
+function returnhome() {
+    window.location.href = "index.php";
+}
+
+</script>
 </body>
 </html>

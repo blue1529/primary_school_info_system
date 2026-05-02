@@ -10,48 +10,46 @@ body {
     margin: auto;
 }
 
-/* MESSAGE */
+
 .message {
     text-align: center;
     font-weight: bold;
     margin-bottom: 10px;
 }
 
-/* TOP FORM */
+
 .form-box {
     background: white;
     padding: 20px;
     border-radius: 10px;
 }
 
-/* GRID */
 .grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
 }
 
-/* INPUTS */
 input, select {
     padding: 8px;
     width: 100%;
     border: 1px solid #ccc;
 }
 
-/* BUTTON */
+
 button {
     background: #27ae60;
     color: white;
     padding: 10px;
     border: none;
     cursor: pointer;
+    border-radius: 5px;
 }
 
 button:hover {
     background: #2ecc71;
 }
 
-/* TABLE */
 .table-box {
     margin-top: 20px;
     background: white;
@@ -84,7 +82,6 @@ th {
     cursor: pointer;
 }
 
-/* RESPONSIVE */
 @media(max-width: 768px) {
     .grid {
         grid-template-columns: 1fr;

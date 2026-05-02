@@ -1,6 +1,7 @@
 let teacher_btn=document.getElementById("teachers");
 let maincontent=document.getElementById("main_content");
 
+//students grades action
 let std_grades=document.getElementById("std_grades");
 std_grades.addEventListener("click", (e) =>{
     e.preventDefault();
@@ -18,6 +19,7 @@ std_grades.addEventListener("click", (e) =>{
     `;
 })
 
+//for classes button
 let classes=document.getElementById("classes");
 classes.addEventListener("click", (e) =>{
     e.preventDefault();
@@ -34,10 +36,12 @@ classes.addEventListener("click", (e) =>{
         </div>
     `;
 })
+
+//student status button
 let std_status=document.getElementById("std_status");
 std_status.addEventListener("click", (e) =>{
     e.preventDefault();
-    maincontent.innerHTML=` <h3> STUDENT DETAILS </h3>
+    maincontent.innerHTML=` <h3> STUDENT STATUS </h3>
     <div class="student_grades">
             <button class="grades">STANDARD 1</button>
             <button class="grades">STANDARD 2</button>
@@ -50,6 +54,8 @@ std_status.addEventListener("click", (e) =>{
         </div>
     `;
 })
+
+//student details button
 let std_details=document.getElementById("std_details");
 std_details.addEventListener("click", (e) =>{
     e.preventDefault();
@@ -116,9 +122,11 @@ dashboard_btn.addEventListener("click", (e) => {
 //     attachTeacherButtonListeners();
 // });
 
-let sideButtons = document.querySelectorAll(".side_btn");
+//let sideButtons = document.querySelectorAll(".side_btn");
 
-sideButtons.forEach(button => {
+
+//----------------CLASHES WITH COLLPASIBLE SIDEBAR HAS TO BE REMOVED------------------------------
+/*sideButtons.forEach(button => {
     button.addEventListener("click", () => {
         // Remove active color from all buttons
         sideButtons.forEach(btn => btn.classList.remove("active"));
@@ -127,7 +135,7 @@ sideButtons.forEach(button => {
         button.classList.add("active");
     });
 });
-
+*/
 // Teachers button click handler
 teacher_btn.addEventListener("click", (e) =>{
     e.preventDefault();
@@ -138,3 +146,59 @@ teacher_btn.addEventListener("click", (e) =>{
     
         </div>`;
 });
+
+
+
+// Get elements
+const toggleBtn = document.getElementById("toggle_btn");
+const sidebar = document.getElementById("sidebar");
+const mainContent = document.getElementById("main_content");
+const sideButtons = document.querySelectorAll(".side_btn");
+
+// Function to hide sidebar completely
+function hideSidebar() {
+    sidebar.classList.add("hidden");
+    toggleBtn.innerHTML = "☰";        // Show hamburger
+}
+
+// Function to show sidebar
+function showSidebar() {
+    sidebar.classList.remove("hidden");
+    toggleBtn.innerHTML = "✕";        // Show close icon
+}
+
+// Toggle button click
+toggleBtn.addEventListener("click", () => {
+    if (sidebar.classList.contains("hidden")) {
+        showSidebar();
+    } else {
+        hideSidebar();
+    }
+});
+
+// When any menu button is clicked → hide sidebar
+sideButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        hideSidebar();
+        
+        // Optional: Add active class
+        sideButtons.forEach(btn => btn.classList.remove("active"));
+        button.classList.add("active");
+    });
+});
+
+// Initialize: Show sidebar when page first loads
+window.addEventListener("load", () => {
+    showSidebar();   // Start with sidebar visible
+});
+
+// Keep all your existing button functionality below this
+// Just make sure you don't override the click listeners
+
+// Example: Your existing dashboard button
+document.getElementById("dashboard").addEventListener("click", (e) => {
+    e.preventDefault();
+    mainContent.innerHTML = `<img src="images/dashboard3.jpg" alt="image of a classroom" class="dashboard-img">`;
+});
+
+// ... keep all your other event listeners (std_grades, teachers, etc.)

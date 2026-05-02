@@ -1,8 +1,30 @@
 <?php
 require("../db.php");
 
-$sql = "SELECT * FROM student";
+
+//add ku teachers too
+session_start();
+
+if (!isset($_SESSION['user'])) {
+    header("Location: login.php");
+    exit();
+}
+
+$user = $_SESSION['user'];
+
+if ($user['role'] == "teacher") {
+    $class = $user['class'];
+    $sql = "SELECT * FROM student WHERE class='$class'";
+} else {
+    $sql = "SELECT * FROM student";
+}
+//do ku teachers too
 $result = mysqli_query($conn, $sql);
+
+
+
+// $sql = "SELECT * FROM student";
+// $result = mysqli_query($conn, $sql);
 
 ?>
 
@@ -22,13 +44,23 @@ $result = mysqli_query($conn, $sql);
 <div class="navbar">
 
     <div class="nav-center">
-        <h2>Class 1</h2>
+        <h2>
+<?php
+if ($user['role'] == "teacher") {
+    echo "Class " . $user['class'];
+} else {
+    echo "Headmaster Dashboard";
+}
+?>
+</h2>
     </div>
 
     <div class="nav-right">
         <button onclick="addStudent()">Add Student</button>
         <button onclick="grades()">Enter Grades</button>
-        <button onclick="logout()">LOG-OUT</button>
+        <a href="logout.php">
+<button style="background:red;color:white;">Logout</button>
+</a>
     </div>
 </div>
 
@@ -121,10 +153,6 @@ function addStudent() {
 
 function grades() {
     window.location.href = "grades.php";
-}
-
-function enterGrade(id) {
-    window.location.href = "enter_grade.php?id=" + id;
 }
 
 </script>

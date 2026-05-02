@@ -5,7 +5,7 @@ $id = $_GET['id'];
 
 /* GET STUDENT + GRADES */
 $sql = "
-SELECT g.*, s.first_name, s.middle_name, s.last_name, s.parent_email
+SELECT g.*, s.first_name, s.middle_name, s.last_name, s.parent_email, s.class
 FROM grades g
 JOIN student s ON g.student_id = s.student_id
 WHERE g.grade_id = $id
@@ -48,6 +48,8 @@ $comment = ($data['status'] == "PASS")
 <p><b>Name:</b>
 <?php echo $data['first_name']." ".$data['middle_name']." ".$data['last_name']; ?>
 </p>
+
+<p><b>Class:</b> <?php echo  $data['class']; ?></p>
 
 <p><b>Position:</b> <?php echo $position." out of ".$total_students; ?></p>
 

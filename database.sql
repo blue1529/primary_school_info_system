@@ -73,3 +73,12 @@ CREATE TABLE grades (
 
     FOREIGN KEY (student_id) REFERENCES students(student_id)
 );
+
+CREATE TABLE users (
+    user_id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50),
+    email VARCHAR(100),
+    password VARCHAR(255),
+    role VARCHAR(20),   -- 'teacher' or 'headmaster'
+    class INT NULL      -- NULL for headmaster
+);

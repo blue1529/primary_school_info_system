@@ -1,33 +1,55 @@
 <?php
+
 session_start();
-$conn = new mysqli("localhost", "root", "", "primary_school_login");
+$conn = mysqli_connect("localhost", "root", "", "school");
 
-if ($_SERVER["REQUEST_METHOD"] == "POST"){
-     $user = $_POST['username'];
-    $pass = $_POST['password'];
+if (isset($_POST['login'])) {
 
-    $stmt = $conn->prepare("SELECT id, password, role FROM users WHERE username = ?");
-    $stmt->bind_param("s", $user);
-    $stmt->execute();
-    $result = $stmt->get_result();
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $class = $_POST['class'];
 
-    if ($row = $result->fetch_assoc()) {
-        if ($pass === $row['password']) {
-        $_SESSION['user_id'] = $row['id'];
-        $_SESSION['username'] = $row['username'];
-        $_SESSION['role'] = $row['role'];
+    $result = mysqli_query($conn, "SELECT * FROM users WHERE email='$email'");
+    $user = mysqli_fetch_assoc($result);
 
-        if ($_SESSION['role'] == 'headmaster') {
-            header("Location: headmaster_panel.php");
-        } elseif ($_SESSION['role'] == 'teacher') {
-            header("Location: teacher_portal.php");
+    if ($user && password_verify($password, $user['password'])) {
+
+        // CHECK CLASS FOR TEACHER
+        if ($user['role'] == "teacher" && $user['class'] != $class) {
+            echo "❌ Wrong class";
         } else {
-            header("Location: parent_view.php");
+
+            $_SESSION['user'] = $user;
+            header("Location: ../class_teacher/class_teacher.php");
         }
-        exit();
-        }else {
-            echo "Incorrect password.";
-        }
+    } else {
+        echo "❌ Invalid login";
     }
 }
 ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body { font-family: Arial; background:#eef; }
+.form { width:300px; margin:50px auto; background:white; padding:30px; border-radius:10px; }
+input { width:100%; padding:8px; margin:5px 0; }
+button { width:100%; padding:10px; background:#2980b9; color:white; border:none; }
+</style>
+</head>
+<body>
+
+<div class="form">
+<h2>Login</h2>
+
+<form method="POST">
+<input type="email" name="email" placeholder="Email" required>
+<input type="password" name="password" placeholder="Password" required>
+<input type="number" name="class" placeholder="Class (None for Headmaster)">
+<button name="login">Login</button>
+</form>
+</div>
+
+</body>
+</html>

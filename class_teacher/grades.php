@@ -1,6 +1,18 @@
 <?php
 require("../db.php");
 
+
+session_start();
+
+if (!isset($_SESSION['user'])) {
+    header("Location: login.php");
+    exit();
+}
+
+$user = $_SESSION['user'];
+
+
+
 $message = "";
 
 $edit_mode = false;
@@ -128,12 +140,24 @@ $students = mysqli_query($conn, "
 ");
 
 //fetch grades
-$grades = mysqli_query($conn, "
-   SELECT g.*, s.first_name, s.last_name 
-FROM grades g
-JOIN student s ON g.student_id = s.student_id
-ORDER BY g.total DESC
-");
+if ($user['role'] == "teacher") {
+    $class = $user['class'];
+
+    $grades = mysqli_query($conn, "
+        SELECT g.*, s.first_name, s.last_name 
+        FROM grades g
+        JOIN student s ON g.student_id = s.student_id
+        WHERE s.class='$class'
+    ");
+} else {
+    $grades = mysqli_query($conn, "
+        SELECT g.*, s.first_name, s.last_name 
+        FROM grades g
+        JOIN student s ON g.student_id = s.student_id
+        ORDER BY g.total DESC
+    ");
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -169,7 +193,23 @@ ORDER BY g.total DESC
     <option value="">Select Student</option>
 
     <?php
-    $students = mysqli_query($conn, "SELECT student_id, first_name, last_name FROM student ORDER BY first_name ASC");
+
+    if ($user['role'] == "teacher") {
+    $class = $user['class'];
+    $students = mysqli_query($conn, "
+        SELECT student_id, first_name, last_name 
+        FROM student
+        WHERE class='$class'
+        ORDER BY first_name ASC
+    ");
+} else {
+    $students = mysqli_query($conn, "
+        SELECT student_id, first_name, last_name 
+        FROM student
+        ORDER BY first_name ASC
+    ");
+}
+    // $students = mysqli_query($conn, "SELECT student_id, first_name, last_name FROM student ORDER BY first_name ASC");
 
     while($row = mysqli_fetch_assoc($students)) {
         $selected = ($edit_mode && $edit_data['student_id'] == $row['student_id']) ? "selected" : "";

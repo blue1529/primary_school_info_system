@@ -19,7 +19,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $parent_email = $_POST['email'];
     $parent_phone = $_POST['phone'];
-    
+
+   if (!filter_var($parent_email, FILTER_VALIDATE_EMAIL)) {
+    header("Location: studentreg.html?error=invalid_email");
+    exit;
+}
     // insert into database
     $sql = "INSERT INTO student (first_name, middle_name, last_name, enrollment_date,
      date_of_birth, class, gender, special_needs, address, 
@@ -28,9 +32,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     if ($conn->query($sql) === TRUE) {
         header("Location: studentreg.html?success=1");
+        exit;
     } else {
         header("Location: studentreg.html?error=1");
+        exit;
     }
-    exit;
+    
 }
 ?>

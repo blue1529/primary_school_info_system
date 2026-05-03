@@ -1,5 +1,5 @@
 <?php
-$conn = mysqli_connect("localhost", "root", "", "primary_school_info_system");
+$conn = mysqli_connect("localhost", "root", "", "school");
 
 if (isset($_POST['signup'])) {
 

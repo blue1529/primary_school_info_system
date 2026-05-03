@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f2e6e6;
+        }
+
+        .container {
+            width: 300px;
+            margin: auto;
+            margin-top: 50px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Registration Form</h2>
+
+    <form onsubmit="return validateForm()">
+
+        Name:<br>
+        <input type="text" id="name" required><br>
+
+        Surname:<br>
+        <input type="text" id="Surname" required><br>
+
+        phone number:<br>
+        <input type="number" id="phone_number" required><br>
+
+        Email:<br>
+        <input type="email" id="email" placeholder="sandrabanda@gmail.com" required><br>
+
+        Gender:<br>
+        <select id="gender" required>
+            <option value="">--Select--</option>
+            <option>Male</option>
+            <option>Female</option>
+        </select><br><br>
+
+        <button type="submit">Register</button>
+
+    </form>
+</div>
+
+<script>
+function validateForm() {
+    let phone_number = document.getElementById("phone_number").value;
+
+    alert("Form submitted successfully!");
+    return true;
+}
+</script>
+
+</body>
+</html>

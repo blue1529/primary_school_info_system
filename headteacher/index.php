@@ -1,5 +1,12 @@
 <?php
-// echo"hello world";
+// require("../db.php");
+//  session_start();
+
+// if (!isset($_SESSION['user'])) {
+//     header("Location: login.php");
+//     exit();
+// } 
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -21,8 +28,8 @@
                         <li><button class="side_btn" id="std_details">Student details</button></li>
                         <li><button class="side_btn" id="teachers">Teachers</button></li>
                         <li><button class="side_btn" id="std_grades" >Student grades</button></li>
-                        <li><button class="side_btn" id="classes" >Classes</button></li>
-                        <li><button class="side_btn" id="std_status">Student Status</button></li>
+                        <!-- <li><button class="side_btn" id="classes" >Classes</button></li> -->
+                        <!-- <li><button class="side_btn" id="std_status">Student Status</button></li> -->
                     </ul>
                 </div>
                 <div class="content" id="main_content">

@@ -1,22 +1,10 @@
 let teacher_btn=document.getElementById("teachers");
 let maincontent=document.getElementById("main_content");
 
-//students grades action
 let std_grades=document.getElementById("std_grades");
 std_grades.addEventListener("click", (e) =>{
     e.preventDefault();
-    maincontent.innerHTML=` <h3> STUDENT GRADES </h3>
-        <div class="student_grades">
-            <button class="grades">STANDARD 1</button>
-            <button class="grades">STANDARD 2</button>
-            <button class="grades">STANDARD 3</button>
-            <button class="grades">STANDARD 4</button>
-            <button class="grades">STANDARD 5</button>
-            <button class="grades">STANDARD 6</button>
-            <button class="grades">STANDARD 7</button>
-            <button class="grades">STANDARD 8</button>
-        </div>
-    `;
+    window.location.href = "student_grades.php?page=student_grades";
 })
 
 //for classes button

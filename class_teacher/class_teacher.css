@@ -1,6 +1,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
+    background-color: lightgrey;
 }
 
 /* NAVBAR */
@@ -8,7 +9,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #008081;
+    background: #173459;
     color: white;
     padding: 10px 15px;
 }
@@ -18,17 +19,18 @@ body {
 }
 
 .nav-right button {
-    background: #173459;
+    background: #27ae60;
     color: white;
     border: none;
     padding: 12px;
     cursor: pointer;
     border-radius: 5px;
     font-size: 15px;
+    margin-left: 10px;
 }
 
 .nav-right button:hover {
-    background: #03348f;
+    background: #2ecc70e8;
 }
 
 
@@ -69,7 +71,7 @@ body {
         }
 
         th {
-            background: #173459;
+            background: #008081;
             color: white;
         }
 

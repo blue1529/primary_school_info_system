@@ -60,7 +60,7 @@ if ($user['role'] == "teacher") {
         <button onclick="addStudent()">Add Student</button>
         <button onclick="grades()">Enter Grades</button>
         <a href="logout.php">
-<button style="background:red;color:white;">Logout</button>
+<button style="background: #f3295b;color:white;">Logout</button>
 </a>
     </div>
 </div>

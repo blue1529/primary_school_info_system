@@ -127,7 +127,7 @@ if ($user['role'] == "teacher") {
             echo "<td>".$row['parent_email']."</td>";
             echo "<td>".$row['class']."</td>";
             echo "<td>".$row['enrollment_date']."</td>";
-            echo "<td>".$row['Special_needs']."</td>";
+            echo "<td>".$row['special_needs']."</td>";
             echo "<td>".$row['address']."</td>";
 
             echo "</tr>";

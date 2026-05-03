@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-$conn = mysqli_connect("localhost", "root", "", "primary_school_info_system");
+$conn = mysqli_connect("localhost", "root", "", "school");
 
 if (isset($_POST['login'])) {
 
@@ -39,10 +39,24 @@ if (isset($_POST['login'])) {
 <html>
 <head>
 <style>
-body { font-family: Arial; background:#eef; }
-.form { width:300px; margin:50px auto; background:white; padding:30px; border-radius:10px; }
-input { width:100%; padding:8px; margin:5px 0; }
-button { width:100%; padding:10px; background:#2980b9; color:white; border:none; }
+body {      font-family: Arial; 
+            background-color: #173459;  }
+
+.form {     width:300px; 
+            margin:50px auto; 
+            background: #008081; 
+            padding:30px; 
+            border-radius:10px; }
+
+input {     width:100%; 
+            padding:8px; 
+            margin:5px 0; }
+
+button {    width:100%; 
+            padding:10px; 
+            background: #2980b9; 
+            color:white; 
+            border:none; }
 </style>
 </head>
 <body style="background: #008181">

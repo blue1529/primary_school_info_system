@@ -60,7 +60,7 @@ if ($user['role'] == "teacher") {
         <button onclick="addStudent()">Add Student</button>
         <button onclick="grades()">Enter Grades</button>
         <a href="logout.php">
-<button style="background:red;color:white;">Logout</button>
+<button style="background: #f3295b;color:white;">Logout</button>
 </a>
     </div>
 </div>
@@ -127,7 +127,7 @@ if ($user['role'] == "teacher") {
             echo "<td>".$row['parent_email']."</td>";
             echo "<td>".$row['class']."</td>";
             echo "<td>".$row['enrollment_date']."</td>";
-            echo "<td>".$row['special_needs']."</td>";
+            echo "<td>".$row['Special_needs']."</td>";
             echo "<td>".$row['address']."</td>";
 
             echo "</tr>";

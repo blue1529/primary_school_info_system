@@ -166,19 +166,33 @@ if ($user['role'] == "teacher") {
 <title>Grades</title>
 
 <link rel="stylesheet" href="grades.css">
+<link rel="stylesheet" href="class_teacher.css">
 
 </head>
 
 <body>
 
 
-<div>
+<div class="navbar">
+
+    <div class="nav-center">
+      <h2>Enter Grades</h2>
+    </div>
+
+   <div class="nav-right">
     <button style="width: 12%; background: black" onclick="returnteacher()">GO BACK</button>
 </div>
 
+</div>
+
+
+<!-- <div>
+    <button style="width: 12%; background: black" onclick="returnteacher()">GO BACK</button>
+</div> -->
+
 <div class="container">
 
-<h2>Enter Grades</h2>
+<!-- <h2>Enter Grades</h2> -->
 
 <?php if ($message != "") echo "<div class='message'>$message</div>"; ?>
 

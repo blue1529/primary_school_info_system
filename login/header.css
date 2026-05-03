@@ -7,14 +7,14 @@ body {
 .header {
     display: flex;
     align-items: center;
-    background: #008081;
+    background: #173459;
     color: white;
     padding: 25px;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    gap: 65%;
+    gap: 60%;;
 }
 
 .nav-center {
@@ -25,7 +25,7 @@ body {
 .school-name {
     margin: 0;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 25px;
     font-weight: bold;
     color: white;
     letter-spacing: 1px;
@@ -52,7 +52,7 @@ body {
 
 .hero {
     height: 100vh;
-    background: url("girl.jpg") no-repeat center/cover;
+    background: url("Bluehat.jpg") no-repeat center/cover;
     display: flex;
     align-items: center;
 }
@@ -64,7 +64,7 @@ body {
     padding: 20px;
     border-radius: 8px;
     height: 40%;
-    margin-left: 6%;
+    margin-left: 60%;
     font-size: 17px;
     line-height: 1.8;
     color: whitesmoke;
@@ -104,7 +104,7 @@ body {
 }
 
 .nav-right button:hover {
-    background: #2ecc71;
+    background: #2ecc70e5;
 }
 
 /* DROPDOWN CONTAINER */

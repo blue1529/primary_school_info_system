@@ -125,17 +125,7 @@ dashboard_btn.addEventListener("click", (e) => {
 //let sideButtons = document.querySelectorAll(".side_btn");
 
 
-//----------------CLASHES WITH COLLPASIBLE SIDEBAR HAS TO BE REMOVED------------------------------
-/*sideButtons.forEach(button => {
-    button.addEventListener("click", () => {
-        // Remove active color from all buttons
-        sideButtons.forEach(btn => btn.classList.remove("active"));
 
-        // Add active color to clicked button
-        button.classList.add("active");
-    });
-});
-*/
 // Teachers button click handler
 teacher_btn.addEventListener("click", (e) =>{
     e.preventDefault();

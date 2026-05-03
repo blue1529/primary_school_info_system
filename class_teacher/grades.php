@@ -172,13 +172,26 @@ if ($user['role'] == "teacher") {
 <body>
 
 
-<div>
-    <button style="width: 12%; background: black" onclick="returnteacher()">GO BACK</button>
+<div class="navbar">
+
+    <div class="nav-center">
+      <h2>Enter Grades</h2>
+    </div>
+
+   <div class="nav-right">
+    <button style="background: black" onclick="returnteacher()">GO BACK</button>
 </div>
+
+</div>
+
+
+<!-- <div>
+    <button style="width: 12%; background: black" onclick="returnteacher()">GO BACK</button>
+</div> -->
 
 <div class="container">
 
-<h2>Enter Grades</h2>
+<!-- <h2>Enter Grades</h2> -->
 
 <?php if ($message != "") echo "<div class='message'>$message</div>"; ?>
 

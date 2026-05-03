@@ -1,23 +1,23 @@
-# primary_school_info_system
-This repository contains files from group one concerning a web development project about a primary schol information system which will be created by group one members
+# Primary School Information System
 
-Hello There!!
->>>>>>> a16bb42 (db creation and teacher reg creation)
-=======
-This repository contains files from group one concerning a web development project about a primary school information system which will be created by group one members
+This repository contains files from Group One for a web development project about a primary school information system.
 
-## Technologies used
-HTML, CSS, PHP, DATABASE, JAVASCRIPT
+## Technologies Used
 
-## GROUP MEMBERS
-SANDRA BANDA
-CALVIN
-REHEMA FAITH
-MADALITSO
-GOMEGZANI
-DIANA DUNCAN
-HAROON
-VIVIAN
-MIKE
+- HTML
+- CSS
+- PHP
+- DATABASE
+- JAVASCRIPT
 
->>>>>>> 6d3ad3d (added login page with html, php and sql)
+## Group Members
+
+- SANDRA BANDA
+- CALVIN
+- REHEMA FAITH
+- MADALITSO
+- GOMEGZANI
+- DIANA DUNCAN
+- HAROON
+- VIVIAN
+- MIKE

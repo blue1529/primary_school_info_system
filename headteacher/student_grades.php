@@ -76,14 +76,14 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
                     echo "<table border='1'>
                             <tr>
                                 <th>Name</th>
-                                <th>Mathematics</th>
+                                <th>Maths</th>
                                 <th>English</th>
-                                <th>Biology</th>
-                                <th>Chemistry</th>
-                                <th>Physics</th>
-                                <th>Geography</th>
-                                <th>History</th>
-                                <th>Computer</th>
+                                <th>Chichewa</th>
+                                <th>Social</th>
+                                <th>Life skills</th>
+                                <th>Expressive arts</th>
+                                <th>Agriculture</th>
+                                <th>Bible knowledge</th>
                                 <th>Total</th>
                                 <th>Average</th>
                                 <th>Grade</th>
@@ -190,10 +190,11 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
                     break;
             }
             ?>
-
+            
         </div>
     </div>
 </div>
-
+<script src="student_grades.js"></script>
 </body>
+
 </html>

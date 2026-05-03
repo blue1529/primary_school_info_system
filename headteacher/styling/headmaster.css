@@ -5,6 +5,12 @@ body {
     overflow: hidden;
 }
 
+.main .parent-sidebar .child-sidebar li a{
+    text-decoration: none;
+}
+.parent .header h1{
+    color:white;
+}
 .parent {
     display: flex;
     flex-direction: column;

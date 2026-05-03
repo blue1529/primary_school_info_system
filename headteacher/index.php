@@ -11,14 +11,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>headmaster dashboard</title>
+        <title>Headmaster Dashboard</title>
         <link rel="stylesheet" href="styling/headmaster.css">
     </head>
     <body>
         <div class="parent">
             <div class="header">
                 <button id="toggle_btn" class="toggle-btn">☰</button>
-                <h1 style="color: white">WELCOME</h1>
+                <h1>WELCOME</h1>
             </div>
 
             <div class="main">

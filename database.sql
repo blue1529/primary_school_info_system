@@ -51,10 +51,11 @@ CREATE TABLE Attendance (
 CREATE TABLE Discipline (
     discipline_id INT PRIMARY KEY AUTO_INCREMENT,
     student_id INT,
-    reason VARCHAR,
+    reason VARCHAR(255),
     FOREIGN KEY (student_id) REFERENCES student(student_id) ON DELETE CASCADE
 
-) 
+); 
+
 -- 5. Grades (per term)
 CREATE TABLE grades (
     grade_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -80,7 +81,7 @@ CREATE TABLE users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50),
     email VARCHAR(100),
-    password VARCHAR(255), --must be hashed...
+    password VARCHAR(255), -- must be hashed...
     role VARCHAR(20),   -- 'teacher'
     class INT
 );

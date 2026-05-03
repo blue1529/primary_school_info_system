@@ -1,5 +1,5 @@
 <?php
-$conn = mysqli_connect("localhost", "root", "", "school");
+require("../db.php");
 
 if (isset($_POST['signup'])) {
 
@@ -23,10 +23,11 @@ if (isset($_POST['signup'])) {
 <html>
 <head>
 <style>
-body { font-family: Arial; background:#eef; }
-.form { width:300px; margin:50px auto; background:white; padding:30px; border-radius:10px; }
-input, select { width:100%; padding:8px; margin:5px 0; }
-button { width:100%; padding:10px; background:#27ae60; color:white; border:none; }
+body { font-family: Arial; background:#173459; }
+.form { width:300px; margin:50px auto; background:#008081; padding:30px; border-radius:10px; }
+input, select { width:100%; padding:8px; margin:5px 0;border-radius:10px;  border:none;}
+button { width:100%; padding:10px;  border-radius:10px;
+            background: #0dad50; color:white; border:none; }
 </style>
 </head>
 <body>
@@ -44,7 +45,7 @@ button { width:100%; padding:10px; background:#27ae60; color:white; border:none;
 <option value="headmaster">Headmaster</option>
 </select>
 
-<input type="number" name="class" id="classField" placeholder="Class Number">
+<input type="number" name="class" id="classField" placeholder="Class Number"> <hr>
 
 <button name="signup">Sign Up</button>
 </form>

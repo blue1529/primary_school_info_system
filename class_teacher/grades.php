@@ -166,7 +166,6 @@ if ($user['role'] == "teacher") {
 <title>Grades</title>
 
 <link rel="stylesheet" href="grades.css">
-<link rel="stylesheet" href="class_teacher.css">
 
 </head>
 
@@ -180,7 +179,7 @@ if ($user['role'] == "teacher") {
     </div>
 
    <div class="nav-right">
-    <button style="width: 12%; background: black" onclick="returnteacher()">GO BACK</button>
+    <button style="background: black" onclick="returnteacher()">GO BACK</button>
 </div>
 
 </div>

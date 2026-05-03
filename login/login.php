@@ -1,7 +1,8 @@
 <?php
+require("../db.php");
 
 session_start();
-$conn = mysqli_connect("localhost", "root", "", "school");
+
 
 if (isset($_POST['login'])) {
 
@@ -21,7 +22,7 @@ if (isset($_POST['login'])) {
 
             $_SESSION['user'] = $user;
                     if ($user['role'] == "headmaster") {
-            header("Location:../headteacher/headteacher.php");
+            header("Location:../headteacher/index.php");
         } else {
             header("Location: ../class_teacher/class_teacher.php");
         }
@@ -40,7 +41,7 @@ if (isset($_POST['login'])) {
 <head>
 <style>
 body {      font-family: Arial; 
-            background-color: #173459;  }
+ }
 
 .form {     width:300px; 
             margin:50px auto; 
@@ -50,16 +51,23 @@ body {      font-family: Arial;
 
 input {     width:100%; 
             padding:8px; 
-            margin:5px 0; }
+            margin:5px 0;
+            border-radius:10px;
+            border:none;
+        }
 
 button {    width:100%; 
             padding:10px; 
-            background: #2980b9; 
+            border-radius:10px;
+            background: #0dad50;
             color:white; 
             border:none; }
+button:hover {
+    background: #4db478;
+}
 </style>
 </head>
-<body style="background: #008181">
+<body style="background: #173459">
 
 <div>
     <button style="width: 12%; background: black" onclick="returnhome()">GO BACK</button>
@@ -71,7 +79,7 @@ button {    width:100%;
 <form method="POST">
 <input type="email" name="email" placeholder="Email" required>
 <input type="password" name="password" placeholder="Password" required>
-<input type="number" name="class" placeholder="Class (None for Headmaster)">
+<input type="number" name="class" placeholder="Class (None for Headmaster)"> <br> <hr>
 <button name="login">Login</button>
 </form>
 </div>

@@ -40,7 +40,7 @@ body {
     background-color: #173459;
     color: white;
     border: none;
-    padding: 12px;
+    padding: 13px;
     cursor: pointer;
     border-radius: 5px;
     font-size: 17px;
@@ -55,6 +55,7 @@ body {
     background: url("Bluehat.jpg") no-repeat center/cover;
     display: flex;
     align-items: center;
+    font-family: 'Poppins', Arial, sans-serif;
 }
 
 .about {
@@ -85,14 +86,12 @@ body {
 }
 
 
-/* NAV RIGHT ALIGNMENT */
 .nav-right {
     display: flex;
     align-items: center;
     gap: 25px;
 }
 
-/* BUTTONS */
 .nav-right button {
     padding: 8px 14px;
     border: none;
@@ -131,14 +130,12 @@ body {
     color: black;
 }
 
-/* SHOW DROPDOWN ON HOVER */
 .dropdown:hover .dropdown-content {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
 }
 
-/* DROPDOWN ITEMS */
 .dropdown-content p {
     padding: 12px;
     margin: 0;
@@ -151,7 +148,6 @@ body {
     border-bottom: none;
 }
 
-/* HOVER EFFECT ON ITEMS */
 .dropdown-content p:hover {
     background: #75c6ee;
 }

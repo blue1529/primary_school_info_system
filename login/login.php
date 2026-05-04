@@ -2,12 +2,14 @@
 require("../db.php");
 
 session_start();
+header("Cache-Control: no-store, no-cache, must-revalidate");
+header("Pragma: no-cache");
 
 
 if (isset($_POST['login'])) {
 
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+    $email = $_POST['user_email_login'];
+    $password = $_POST['user_password_login'];    
     $class = $_POST['class'];
 
     $result = mysqli_query($conn, "SELECT * FROM users WHERE email='$email'");
@@ -15,9 +17,8 @@ if (isset($_POST['login'])) {
 
     if ($user && password_verify($password, $user['password'])) {
 
-        // CHECK CLASS FOR TEACHER
         if ($user['role'] == "teacher" && $user['class'] != $class) {
-            echo "Wrong class";
+           echo "<b style='color:red;margin-left:50%; margin-top:50%;'>WRONG CLASS</b>";
         } else {
 
             $_SESSION['user'] = $user;
@@ -50,6 +51,7 @@ body {      font-family: Arial;
             padding:30px; 
             border-radius:10px;
             margin-top: 100px;
+            padding-right: 45px;
              }
 
 input {     width:100%; 
@@ -65,7 +67,7 @@ button {    width:100%;
             background: #0dad50;
             color:white; 
             border:none;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.51);
+            box-shadow: 6px 8px 32px 0 rgba(0, 0, 0, 0.51);
          }
 button:hover {
     background: #4db478;
@@ -75,15 +77,16 @@ button:hover {
 <body style="background: 173459">
 
 <div>
-    <button style="width: 12%; background: #27ae60" onclick="returnhome()">GO BACK</button>
+    <button style="width: 12%; background: #27a60; box-shadow: 0 15px 15px rgba(0, 0, 0, 0.64);" onclick="returnhome()">GO BACK</button>
 </div>
 
 <div class="form" >
 <h2>Login</h2>
 
-<form method="POST">
-<input type="email" name="email" placeholder="Email" required>
-<input type="password" name="password" placeholder="Password" required>
+<form method="POST" autocomplete="off">
+    <input type="email" name="user_email_login" placeholder="Enter your mail" autocomplete="off" required>
+<input type="password" name="user_password_login" placeholder="Enter your password" autocomplete="new-password" required>
+
 <input type="number" name="class" placeholder="Class (None for Headmaster)"> <br> <hr>
 <button name="login">Login</button>
 </form>
@@ -92,9 +95,21 @@ button:hover {
 
 <script>
 
+//     window.onload = function() {
+//     document.querySelector("form").reset();
+// };
+
 function returnhome() {
     window.location.href = "index.php";
 }
+
+window.onload = function() {
+    let inputs = document.querySelectorAll("input");
+
+    inputs.forEach(input => {
+        input.value = "";
+    });
+};
 
 </script>
 </body>

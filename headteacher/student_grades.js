@@ -1,4 +1,3 @@
-//================For collapsible sidebar function==========================================
 const toggleBtn = document.getElementById("toggle_btn");
 const sidebar = document.getElementById("sidebar");
 

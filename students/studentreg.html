@@ -9,10 +9,10 @@
             text-align: center;  
         }
         body{
-            background: linear-gradient(to right,#e7dfdf,#86b3e6);
+            background: linear-gradient(to right,#e7dfdf, #305b93);
         }
         form{
-            background : linear-gradient(to left,#e7dfdf,#8ab4e4);
+            background : linear-gradient(to left,#e7dfdf,#e7dfdf);
             padding: 25px;
             border-radius: 10px;
             width: 80%;
@@ -46,7 +46,7 @@
     <h1> STUDENT REGISTRATION FORM</h1>
     <form method="POST" action="">
     <fieldset id="step1">
-       <legend> <b>Student details</b> </legend>
+       <legend> <b>child's details</b> </legend>
         <label for="fname"> First Name : </label>
         <input type="text" name="fname" id="fname" required>&nbsp; 
         <label for="mname"> Middle Name : </label>
@@ -73,9 +73,8 @@
         <input type="radio" name="gender" value="male" id="male" required>
         <label for="male">Male</label>
         <input type="radio" name="gender" value="female" id="female">
-        <label for="female">Female</label>             
-        <input type="radio" name="gender" value="none" id="none">
-        <label for="none">Rather not say</label><br><br>
+        <label for="female">Female</label>
+        <br><br>
         <label for="residence">Home District</label>
         <select name="residence" id="residence" required>
             <option value="">--Select District--</option>
@@ -111,20 +110,24 @@
         </select><br><br> 
         <label for="specialneeds"> Special Needs :</label><br>
         <textarea name="specialneeds" id="specialneeds" placeholder="if any" rows="3" cols="40" style="border-color: #66c2ff; border-radius: 12px;"></textarea><br><br>
-        <label for="postal address"> postal address :</label><br>
-        <textarea name="postaladdress" id="paddress" rows="3" cols="40" style="border-color: #66c2ff; border-radius: 12px;"></textarea>
+        <label for="postal address" > postal address :</label><br>
+        <textarea name="postaladdress" id="paddress" rows="3" cols="40" style="border-color: #66c2ff; border-radius: 12px;" required></textarea>
         <br><br>
-        <button type="button" onclick="nextStep()"> next </button>
+        <button type="button" onclick="nextStep()">  Next <i class="fas fa-arrow-right"></i> 
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+        </svg>
+        </button>
     </fieldset>
     <fieldset id="step2" style="display: none;">
-      <legend> <b>Parents Details</b> </legend>
+      <legend> <b> guardian details</b> </legend>
         <label for="pfname"> First Name : </label>
         <input type="text" name="pfname" id="pfname" required> <br><br>
 
         <label for="psname"> Surname :</label>
         <input type="text" name="psname" id="psname" required> <br><br>
         <label> Relationship with the child :</label><br><br>
-        <input type="radio" name="relationship" value="father" id="father" >
+        <input type="radio" name="relationship" value="father" id="father" required>
         <label for="father">Father</label>
         <input type="radio" name="relationship" value="mother" id="mother">
         <label for="mother">Mother</label>
@@ -137,6 +140,7 @@
         <button type="button" onclick="prevStep()">Back</button> <br><br>
         <input type="submit" name="Registration" id="registration" style="border-radius: 10px;" value="REGISTER">
         <input type="reset" id="reset" style="border-radius: 10px;" value="CLEAR">
+    
     </fieldset><br>
   </form>
   <script>
@@ -151,6 +155,26 @@
             return;
         }
     }
+     // checking if one of the class was selected 
+    const classValue = document.getElementById("class").value;
+
+         if (!classValue) {
+            alert("Please select a class.");
+            return;
+        }
+     // checking if one of the districts was selected
+    const homedistrict= document.getElementById("residence").value;
+
+         if (!homedistrict) {
+            alert("Please select a dictrict.");
+            return;
+        }
+    const postaladdress= document.getElementById("paddress").value;
+
+         if (!postaladdress) {
+            alert("Please enter postal address.");
+            return;
+         }
     // checking if one of the genders was selected 
     const gender = document.querySelector('input[name="gender"]:checked');
 
@@ -158,6 +182,7 @@
             alert("Please select a gender.");
             return;
         }
+    
     // If all fields are filled
         step1.style.display = "none";
         document.getElementById("step2").style.display = "block";

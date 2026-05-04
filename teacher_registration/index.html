@@ -6,13 +6,13 @@
     <style>
         body {
             font-family: Arial;
-            background-color: #f2e6e6;
+            background: linear-gradient(to right,#e7dfdf, #4f8fe4);
         }
 
-        .container {
+       .container {
             width: 300px;
             margin: auto;
-            margin-top: 50px;
+            margin-top: 60px;
         }
 
         h2 {
@@ -24,7 +24,7 @@
             padding: 8px;
             margin: 8px 0;
             border-radius: 5px;
-            border: 1px solid #ccc;
+            border: 1px solid #1ea4f7;
         }
 
         button {
@@ -35,35 +35,38 @@
             border: none;
             border-radius: 5px;
         }
+        input[type="radio"] {
+            width: auto;
+            margin: 0;
+        }
     </style>
 </head>
 
 <body>
 
 <div class="container">
-    <h2>Registration Form</h2>
+    <h2 style="color: rgba(24, 20, 20, 0.865);">Registration Form</h2>
 
     <form onsubmit="return validateForm()">
 
-        Name:<br>
+        <label for="tfname">first name :</label><br>
         <input type="text" id="name" required><br>
 
-        Surname:<br>
-        <input type="text" id="Surname" required><br>
+        <label for="tsname" >Surname :</label><br>
+        <input type="text" id="tSurname" required><br>
 
-        phone number:<br>
-        <input type="number" id="phone_number" required><br>
+        <label for="phone_number" > Phone number :</label><br>
+        <input type="tel" id="phone_number" required><br>
 
-        Email:<br>
-        <input type="email" id="email" placeholder="sandrabanda@gmail.com" required><br>
+        <label for="email" > Email :</label><br>
+        <input type="email" id="email" placeholder=" enter email" required><br>
 
-        Gender:<br>
-        <select id="gender" required>
-            <option value="">--Select--</option>
-            <option>Male</option>
-            <option>Female</option>
-        </select><br><br>
-
+        <label>Gender :</label><br><br>
+        <input type="radio" name="gender" value="male" required>
+         Male &nbsp;&nbsp;
+        <input type="radio" name="gender" value="female">
+         Female
+         <br><br>
         <button type="submit">Register</button>
 
     </form>

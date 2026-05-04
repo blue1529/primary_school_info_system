@@ -26,6 +26,7 @@ body {
     border-radius: 5px;
     font-size: 15px;
     margin-left: 10px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.507);
 }
 
 .nav-right button:hover {

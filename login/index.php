@@ -19,12 +19,12 @@
         <button onclick="login()">Log-in</button>
 
         <div class="dropdown">
-            <button>Contact Us </button>
+            <button>Contacts</button>
 
             <div class="dropdown-content">
-                <p><b>Headteacher:</b><br>0991112222</p>
-                <p><b>Deputy:</b><br>0883334444</p>
-                <p><b>Treasurer:</b><br>0775556666</p>
+                <p><b>Headteacher:</b> 0991112222</p>
+                <p><b>Deputy:</b> 0883334444</p>
+                <p><b>Treasurer:</b> 0775556666</p>
             </div>
         </div>
 
@@ -33,13 +33,13 @@
 </div>
 
 <section class="hero">
-    <div class="about">
+    <!-- <div class="about">
         <h1>About Us</h1>
         <p>
             
         Zenith academy provides quality education that promotes academic excellence, creativity, and personal growth. We create a supportive environment where students develop skills, confidence, and leadership for a brighter future.
         </p>
-    </div>
+    </div> -->
 </section>
 
 <footer class="footer">

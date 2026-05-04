@@ -94,14 +94,14 @@ if (isset($_POST['save'])) {
     } else {
 
         // SUBJECTS
+        $agri = $_POST['agriculture'];
+        $bible = $_POST['bible_knowledge'];
         $math = $_POST['mathematics'];
         $eng = $_POST['english'];
-        $bio = $_POST['biology'];
-        $chem = $_POST['chemistry'];
-        $phy = $_POST['physics'];
-        $geo = $_POST['geography'];
-        $hist = $_POST['history'];
-        $comp = $_POST['computer'];
+        $chi = $_POST['chichewa'];
+        $soc = $_POST['social'];
+        $life = $_POST['lifeskills'];
+        $arts = $_POST['expressive_arts'];
 
         // TOTAL + AVERAGE
         $total = $math + $eng + $bio + $chem + $phy + $geo + $hist + $comp;
@@ -119,9 +119,9 @@ if (isset($_POST['save'])) {
 
         // INSERT
         $sql = "INSERT INTO grades 
-        (student_id, term, mathematics, english, biology, chemistry, physics, geography, history, computer, total, average, grade, status)
+        (student_id, term, agriculture, bible_knowledge, mathematics, english, chichewa, social, lifeskills, expressive_arts, total, average, grade, status)
         VALUES 
-        ('$student_id','$term','$math','$eng','$bio','$chem','$phy','$geo','$hist','$comp','$total','$average','$grade','$status')";
+        ('$student_id','$term','$agri','$bible','$math','$eng','$chi','$soc','$life','$arts','$total','$average','$grade','$status')";
 
         if (mysqli_query($conn, $sql)) {
             $message = "Grades saved successfully!";
@@ -179,7 +179,7 @@ if ($user['role'] == "teacher") {
     </div>
 
    <div class="nav-right">
-    <button style="background: black" onclick="returnteacher()">GO BACK</button>
+    <button style="background: #27ae60" onclick="returnteacher()">GO BACK</button>
 </div>
 
 </div>
@@ -244,22 +244,37 @@ if ($user['role'] == "teacher") {
         <option>3</option>
     </select>
 
-     <input type="number" name="mathematics" placeholder="Mathematics" required
+     <label for="agriculture">agriculture</label>
+<input type="number" id="agriculture" name="agriculture" placeholder="Enter agriculture score" required
+value="<?php echo $edit_mode ? $edit_data['agriculture'] : ''; ?>">
+
+<label for="bible_knowledge">bible_knowledge</label>
+<input type="number" id="bible_knowledge" name="bible_knowledge" placeholder="Enter bible_knowledge score" required
+value="<?php echo $edit_mode ? $edit_data['bible_knowledge'] : ''; ?>">
+
+<label for="mathematics">mathematics</label>
+<input type="number" id="mathematics" name="mathematics" placeholder="Enter mathematics score" required
 value="<?php echo $edit_mode ? $edit_data['mathematics'] : ''; ?>">
-<input type="number" name="english" placeholder="english" required
+
+<label for="english">english</label>
+<input type="number" id="english" name="english" placeholder="Enter english score" required
 value="<?php echo $edit_mode ? $edit_data['english'] : ''; ?>">
-<input type="number" name="biology" placeholder="biology" required
-value="<?php echo $edit_mode ? $edit_data['biology'] : ''; ?>">
-<input type="number" name="chemistry" placeholder="chemistry" required
-value="<?php echo $edit_mode ? $edit_data['chemistry'] : ''; ?>">
-<input type="number" name="physics" placeholder="physics" required
+
+<label for="chichewa">chichewa</label>
+<input type="number" id="chichewa" name="chichewa" placeholder="Enter chichewa score" required
 value="<?php echo $edit_mode ? $edit_data['physics'] : ''; ?>">
-<input type="number" name="geography" placeholder="geography" required
-value="<?php echo $edit_mode ? $edit_data['geography'] : ''; ?>">
-<input type="number" name="history" placeholder="history" required
-value="<?php echo $edit_mode ? $edit_data['history'] : ''; ?>">
-<input type="number" name="computer" placeholder="computer" required
-value="<?php echo $edit_mode ? $edit_data['computer'] : ''; ?>">
+
+<label for="social">social</label>
+<input type="number" id="social" name="social" placeholder="Enter social score" required
+value="<?php echo $edit_mode ? $edit_data['social'] : ''; ?>">
+
+<label for="lifeskills">lifeskills</label>
+<input type="number" id="lifeskills" name="lifeskills" placeholder="Enter lifeskills score" required
+value="<?php echo $edit_mode ? $edit_data['lifeskills'] : ''; ?>">
+
+<label for="expressive_arts">expressive_arts</label>
+<input type="number" id="expressive_arts" name="expressive_arts" placeholder="Enter expressive_arts score" required
+value="<?php echo $edit_mode ? $edit_data['expressive_arts'] : ''; ?>">
 
 </div>
 

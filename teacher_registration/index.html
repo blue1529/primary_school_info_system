@@ -6,13 +6,11 @@
     <style>
         body {
             font-family: Arial;
-            background-color: #f2e6e6;
+            background: #173459;
         }
 
         .container {
-            width: 300px;
-            margin: auto;
-            margin-top: 50px;
+          width:300px; margin:50px auto; background: #008081; padding:30px; border-radius:10px;
         }
 
         h2 {
@@ -28,17 +26,18 @@
         }
 
         button {
-            width: 100%;
-            padding: 10px;
-            background-color: black;
-            color: white;
-            border: none;
-            border-radius: 5px;
+          width:100%; padding:10px;  border-radius:10px;
+            background: #0dad50; color:white; border:none; 
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.58);
         }
     </style>
 </head>
 
 <body>
+
+    <div>
+    <button style="width: 12%; background: #27ae60" onclick="returntohead()">GO BACK</button>
+</div>
 
 <div class="container">
     <h2>Registration Form</h2>
@@ -75,6 +74,11 @@ function validateForm() {
 
     alert("Form submitted successfully!");
     return true;
+}
+
+
+function returntohead() {
+    window.location.href = "../headteacher/index.php";
 }
 </script>
 

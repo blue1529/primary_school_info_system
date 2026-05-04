@@ -1,6 +1,6 @@
 <?php
 // 1. Include database connection
-require_once __DIR__ . '/../include/db_connect.php';
+require("../db.php");
 
 // 2. Check if form was submitted via POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

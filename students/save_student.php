@@ -13,10 +13,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $special_needs = $_POST['specialneeds'];
     $paddress = $_POST['postaladdress'];
     
-    
+    $relationship = $_POST['relationship'];
     $parent_fname = $_POST['pfname'];
     $parent_lname = $_POST['psname'];
-
     $parent_email = $_POST['email'];
     $parent_phone = $_POST['phone'];
 
@@ -26,9 +25,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
     $sql = "INSERT INTO student (first_name, middle_name, last_name, enrollment_date,
-     date_of_birth, class, gender, special_needs,
+     date_of_birth, class, gender, special_needs, relationship,
      parent_fname, parent_lname, parent_email, parent_phone, address) 
-            VALUES ('$first_name', '$middle_name', '$last_name', '$enrollment_date', '$dob', '$class', '$gender', '$special_needs', '$parent_fname', '$parent_lname', '$parent_email', '$parent_phone', '$paddress')";
+            VALUES ('$first_name', '$middle_name', '$last_name', '$enrollment_date', '$dob', '$class', '$gender', '$special_needs', '$relationship', '$parent_fname', '$parent_lname', '$parent_email', '$parent_phone', '$paddress')";
     
     if ($conn->query($sql) === TRUE) {
         header("Location: studentreg.html?success=1");

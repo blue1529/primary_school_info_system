@@ -86,14 +86,13 @@ if (isset($_POST['save'])) {
     $student_id = $_POST['student_id'];
     $term = $_POST['term'];
 
-    // CHECK DUPLICATE
+    // Check duplicates
     $check = mysqli_query($conn, "SELECT * FROM grades WHERE student_id='$student_id' AND term='$term'");
 
     if (mysqli_num_rows($check) > 0) {
         $message = "This student already has grades for this term!";
     } else {
 
-        // SUBJECTS
         $agri = $_POST['agriculture'];
         $bible = $_POST['bible_knowledge'];
         $math = $_POST['mathematics'];
@@ -103,21 +102,17 @@ if (isset($_POST['save'])) {
         $life = $_POST['lifeskills'];
         $arts = $_POST['expressive_arts'];
 
-        // TOTAL + AVERAGE
-        $total = $math + $eng + $bio + $chem + $phy + $geo + $hist + $comp;
+        $total = $agri + $bible + $math + $eng + $chi + $soc + $life + $arts;
         $average = $total / 8;
 
-        // GRADE LOGIC
         if ($average >= 75) $grade = "A";
         elseif ($average >= 65) $grade = "B";
         elseif ($average >= 50) $grade = "C";
         elseif ($average >= 40) $grade = "D";
         else $grade = "F";
 
-        // PASS / FAIL
         $status = ($average >= 50) ? "PASS" : "FAIL";
 
-        // INSERT
         $sql = "INSERT INTO grades 
         (student_id, term, agriculture, bible_knowledge, mathematics, english, chichewa, social, lifeskills, expressive_arts, total, average, grade, status)
         VALUES 
@@ -132,14 +127,13 @@ if (isset($_POST['save'])) {
 }
 
 
-   //FETCH STUDENTS
 $students = mysqli_query($conn, "
     SELECT student_id, first_name, last_name 
     FROM student
     ORDER BY first_name ASC, last_name ASC
 ");
 
-//fetch grades
+
 if ($user['role'] == "teacher") {
     $class = $user['class'];
 
@@ -166,6 +160,8 @@ if ($user['role'] == "teacher") {
 <title>Grades</title>
 
 <link rel="stylesheet" href="grades.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
 
 </head>
 
@@ -179,7 +175,7 @@ if ($user['role'] == "teacher") {
     </div>
 
    <div class="nav-right">
-    <button style="background: #27ae60" onclick="returnteacher()">GO BACK</button>
+    <button style="background: #27ae60 ; box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.507);" onclick="returnteacher()">GO BACK</button>
 </div>
 
 </div>
@@ -206,7 +202,6 @@ if ($user['role'] == "teacher") {
 
 <div class="grid">
 
-    <!-- STUDENT SELECT -->
    <select name="student_id" required>
     <option value="">Select Student</option>
 
@@ -244,35 +239,35 @@ if ($user['role'] == "teacher") {
         <option>3</option>
     </select>
 
-     <label for="agriculture">agriculture</label>
+     <label for="agriculture">Agriculture</label>
 <input type="number" id="agriculture" name="agriculture" placeholder="Enter agriculture score" required
 value="<?php echo $edit_mode ? $edit_data['agriculture'] : ''; ?>">
 
-<label for="bible_knowledge">bible_knowledge</label>
+<label for="bible_knowledge">Bible knowledge</label>
 <input type="number" id="bible_knowledge" name="bible_knowledge" placeholder="Enter bible_knowledge score" required
 value="<?php echo $edit_mode ? $edit_data['bible_knowledge'] : ''; ?>">
 
-<label for="mathematics">mathematics</label>
+<label for="mathematics">Mathematics</label>
 <input type="number" id="mathematics" name="mathematics" placeholder="Enter mathematics score" required
 value="<?php echo $edit_mode ? $edit_data['mathematics'] : ''; ?>">
 
-<label for="english">english</label>
+<label for="english">English</label>
 <input type="number" id="english" name="english" placeholder="Enter english score" required
 value="<?php echo $edit_mode ? $edit_data['english'] : ''; ?>">
 
-<label for="chichewa">chichewa</label>
+<label for="chichewa">Chichewa</label>
 <input type="number" id="chichewa" name="chichewa" placeholder="Enter chichewa score" required
 value="<?php echo $edit_mode ? $edit_data['physics'] : ''; ?>">
 
-<label for="social">social</label>
+<label for="social">Social</label>
 <input type="number" id="social" name="social" placeholder="Enter social score" required
 value="<?php echo $edit_mode ? $edit_data['social'] : ''; ?>">
 
-<label for="lifeskills">lifeskills</label>
+<label for="lifeskills">Life skills</label>
 <input type="number" id="lifeskills" name="lifeskills" placeholder="Enter lifeskills score" required
 value="<?php echo $edit_mode ? $edit_data['lifeskills'] : ''; ?>">
 
-<label for="expressive_arts">expressive_arts</label>
+<label for="expressive_arts">Expressive arts</label>
 <input type="number" id="expressive_arts" name="expressive_arts" placeholder="Enter expressive_arts score" required
 value="<?php echo $edit_mode ? $edit_data['expressive_arts'] : ''; ?>">
 
@@ -329,7 +324,6 @@ value="<?php echo $edit_mode ? $edit_data['expressive_arts'] : ''; ?>">
 </div>
 
 
-<!-- modal -->
 <div id="reportModal" style="
 display:none;
 position:fixed;
@@ -348,7 +342,7 @@ overflow:auto;
 position:relative;
 ">
 
-<button onclick="closeModal()" style="float:right;">X</button>
+<button onclick="closeModal()" style="float:right; width: 5%; background-color: red;">X</button>
 
 <iframe id="reportFrame" style="width:100%; height:90%;"></iframe>
 

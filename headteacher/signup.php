@@ -4,8 +4,8 @@ require("../db.php");
 if (isset($_POST['signup'])) {
 
     $username = $_POST['username'];
-    $email = $_POST['email'];
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    $email = $_POST['user_email_login'];
+    $password = password_hash($_POST['user_password_login'], PASSWORD_DEFAULT);
     $role = $_POST['role'];
 
     $class = ($role == "teacher") ? $_POST['class'] : NULL;
@@ -15,7 +15,7 @@ if (isset($_POST['signup'])) {
         VALUES ('$username','$email','$password','$role','$class')
     ");
 
-    echo "✅ Account created. <a href='login.php'>Login</a>";
+   echo "<b style='color:green;'>Account created.</b>";
 }
 ?>
 
@@ -45,23 +45,31 @@ button:hover {
 <div class="form">
 <h2>ASSIGN A TEACHER</h2>
 
-<form method="POST">
-<input type="text" name="username" placeholder="Username" required>
-<input type="email" name="email" placeholder="Email" required>
-<input type="password" name="password" placeholder="Password" required>
+
+<form method="POST" autocomplete="off">
+    <input type="text" name="username" autocomplete="off" placeholder="Username" required>
+     <input type="email" name="user_email_login" placeholder="Enter email" autocomplete="off" required>
+<input type="password" name="user_password_login" placeholder="Enter password" autocomplete="new-password" required>
 
 <select name="role" id="role" onchange="toggleClass()">
 <option value="teacher">Teacher</option>
 <option value="headmaster">Headmaster</option>
 </select>
 
-<input type="number" name="class" id="classField" placeholder="Class Number"> <hr>
+<input type="number" name="class" autocomplete="off" id="classField" placeholder="Class Number"> <hr>
 
 <button name="signup">Assign</button>
 </form>
 </div>
 
 <script>
+
+
+window.onload = function() {
+    document.querySelector("form").reset();
+};
+
+
 function toggleClass() {
     let role = document.getElementById("role").value;
     document.getElementById("classField").style.display =

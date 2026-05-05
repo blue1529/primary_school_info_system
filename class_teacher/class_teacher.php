@@ -37,6 +37,7 @@ $result = mysqli_query($conn, $sql);
 <title>Teacher Class Page</title>
 
 <link rel="stylesheet" href="class_teacher.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 </head>
 
@@ -127,7 +128,7 @@ if ($user['role'] == "teacher") {
             echo "<td>".$row['parent_email']."</td>";
             echo "<td>".$row['class']."</td>";
             echo "<td>".$row['enrollment_date']."</td>";
-            echo "<td>".$row['Special_needs']."</td>";
+            echo "<td>".$row['special_needs']."</td>";
             echo "<td>".$row['address']."</td>";
 
             echo "</tr>";
@@ -146,7 +147,7 @@ if ($user['role'] == "teacher") {
 <script>
 
 function addStudent() {
-    window.location.href = "add_student.php";
+    window.location.href = "../students/studentreg.html";
 }
 
 

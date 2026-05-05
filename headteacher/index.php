@@ -13,6 +13,7 @@
     <head>
         <title>Headmaster Dashboard</title>
         <link rel="stylesheet" href="styling/headmaster.css">
+         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     </head>
     <body>
         <div class="parent">

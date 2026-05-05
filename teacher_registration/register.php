@@ -6,7 +6,7 @@ require("../db.php");
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // 3. Get values from the form and remove extra spaces
-    $first_name = trim($_POST['first_name']);
+    $first_name = trim($_POST['name']);
     $middle_name = trim($_POST['middle_name']);
     $last_name = trim($_POST['last_name']);
     $phone = trim($_POST['phone']);
@@ -35,14 +35,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $place_of_residence = mysqli_real_escape_string($conn, $place_of_residence);
 
     // 6. Build the SQL INSERT query (now the values are safe)
-    $sql = "INSERT INTO teachers (
+    $sql = "INSERT INTO teacher (
                 first_name, 
                 middle_name, 
                 last_name, 
                 phone, 
                 email, 
                 class, 
-                subject_taught, 
+                subjects_taught, 
                 gender, 
                 date_of_start, 
                 place_of_residence

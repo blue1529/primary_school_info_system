@@ -29,8 +29,6 @@ window.addEventListener("load", () => {
     showSidebar();
 });
 
-// ---------------------------------------- Content button actiona---------------------------------
-
 document.getElementById("dashboard").addEventListener("click", (e) => {
     e.preventDefault();
     hideSidebar();

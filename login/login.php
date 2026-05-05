@@ -41,13 +41,16 @@ if (isset($_POST['login'])) {
 <head>
 <style>
 body {      font-family: Arial; 
+            background: url("blacknwwhite.jpg") no-repeat center/cover;
  }
 
 .form {     width:300px; 
             margin:50px auto; 
             background: #008081; 
             padding:30px; 
-            border-radius:10px; }
+            border-radius:10px;
+            margin-top: 100px;
+             }
 
 input {     width:100%; 
             padding:8px; 
@@ -61,16 +64,18 @@ button {    width:100%;
             border-radius:10px;
             background: #0dad50;
             color:white; 
-            border:none; }
+            border:none;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.51);
+         }
 button:hover {
     background: #4db478;
 }
 </style>
 </head>
-<body style="background: #173459">
+<body style="background: 173459">
 
 <div>
-    <button style="width: 12%; background: black" onclick="returnhome()">GO BACK</button>
+    <button style="width: 12%; background: #27ae60" onclick="returnhome()">GO BACK</button>
 </div>
 
 <div class="form" >

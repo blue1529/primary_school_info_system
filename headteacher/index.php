@@ -19,6 +19,12 @@
             <div class="header">
                 <button id="toggle_btn" class="toggle-btn">☰</button>
                 <h1>WELCOME</h1>
+
+                <div class="nav-right">
+        <a href="../class_teacher/logout.php">
+<button style="background: #f3295b;color:white;">Logout</button>
+</a>
+    </div>
             </div>
 
             <div class="main">

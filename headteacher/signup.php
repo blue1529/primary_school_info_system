@@ -23,17 +23,27 @@ if (isset($_POST['signup'])) {
 <html>
 <head>
 <style>
-body { font-family: Arial; background:#173459; }
-.form { width:300px; margin:50px auto; background:#008081; padding:30px; border-radius:10px; }
+body { font-family: Arial; background: #173459; }
+.form { width:300px; margin:50px auto; background: #008081; padding:30px; border-radius:10px; }
 input, select { width:100%; padding:8px; margin:5px 0;border-radius:10px;  border:none;}
 button { width:100%; padding:10px;  border-radius:10px;
-            background: #0dad50; color:white; border:none; }
+            background: #0dad50; color:white; border:none; 
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.58);
+        }
+
+button:hover {
+    background: #4db478;
+}
 </style>
 </head>
 <body>
 
+<div>
+    <button style="width: 12%; background: #27ae60" onclick="returnhead()">GO BACK</button>
+</div>
+
 <div class="form">
-<h2>Sign Up</h2>
+<h2>ASSIGN A TEACHER</h2>
 
 <form method="POST">
 <input type="text" name="username" placeholder="Username" required>
@@ -47,7 +57,7 @@ button { width:100%; padding:10px;  border-radius:10px;
 
 <input type="number" name="class" id="classField" placeholder="Class Number"> <hr>
 
-<button name="signup">Sign Up</button>
+<button name="signup">Assign</button>
 </form>
 </div>
 
@@ -56,6 +66,10 @@ function toggleClass() {
     let role = document.getElementById("role").value;
     document.getElementById("classField").style.display =
         (role === "teacher") ? "block" : "none";
+}
+
+function returnhead() {
+    window.location.href = "index.php";
 }
 </script>
 

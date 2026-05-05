@@ -6,13 +6,13 @@
     <style>
         body {
             font-family: Arial;
-            background: linear-gradient(to right,#e7dfdf, #4f8fe4);
+            background-color: #f2e6e6;
         }
 
-       .container {
+        .container {
             width: 300px;
             margin: auto;
-            margin-top: 60px;
+            margin-top: 50px;
         }
 
         h2 {
@@ -28,12 +28,9 @@
         }
 
         button {
-            width: 100%;
-            padding: 10px;
-            background-color: black;
-            color: white;
-            border: none;
-            border-radius: 5px;
+          width:100%; padding:10px;  border-radius:10px;
+            background: #0dad50; color:white; border:none; 
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.58);
         }
         input[type="radio"] {
             width: auto;
@@ -43,6 +40,10 @@
 </head>
 
 <body>
+
+    <div>
+    <button style="width: 12%; background: #27ae60" onclick="returntohead()">GO BACK</button>
+</div>
 
 <div class="container">
     <h2 style="color: rgba(24, 20, 20, 0.865);">Registration Form</h2>
@@ -78,6 +79,11 @@ function validateForm() {
 
     alert("Form submitted successfully!");
     return true;
+}
+
+
+function returntohead() {
+    window.location.href = "../headteacher/index.php";
 }
 </script>
 

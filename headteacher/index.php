@@ -13,12 +13,19 @@
     <head>
         <title>Headmaster Dashboard</title>
         <link rel="stylesheet" href="styling/headmaster.css">
+         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     </head>
     <body>
         <div class="parent">
             <div class="header">
                 <button id="toggle_btn" class="toggle-btn">☰</button>
                 <h1>WELCOME</h1>
+
+                <div class="nav-right">
+        <a href="../class_teacher/logout.php">
+<button style="background: #f3295b;color:white;">Logout</button>
+</a>
+    </div>
             </div>
 
             <div class="main">

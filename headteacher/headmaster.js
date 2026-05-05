@@ -29,8 +29,6 @@ window.addEventListener("load", () => {
     showSidebar();
 });
 
-// ---------------------------------------- Content button actiona---------------------------------
-
 document.getElementById("dashboard").addEventListener("click", (e) => {
     e.preventDefault();
     hideSidebar();
@@ -96,10 +94,13 @@ document.getElementById("teachers").addEventListener("click", (e) => {
     hideSidebar();
     mainContent.innerHTML = `<h3>TEACHERS</h3>
         <div class="teachers_buttons">
-            <a href="../Teachers/teacher_registration/teacher_registration.php">
+            <a href="../teacher_registration/index.html">
                 <button class="t_btn" type="button">Register a Teacher</button>
             </a>
-            <button class="t_btn">Assign Teacher</button>
+            <a href="signup.php">
+                <button class="t_btn">Assign Teacher</button>
+            </a>
+            
         </div>`;
 });
 

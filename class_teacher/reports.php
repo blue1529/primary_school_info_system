@@ -3,7 +3,6 @@ require("../db.php");
 
 $id = $_GET['id'];
 
-/* GET STUDENT + GRADES */
 $sql = "
 SELECT g.*, s.first_name, s.middle_name, s.last_name, s.parent_email, s.class
 FROM grades g
@@ -14,7 +13,6 @@ WHERE g.grade_id = $id
 $result = mysqli_query($conn, $sql);
 $data = mysqli_fetch_assoc($result);
 
-/* POSITION (RANK) */
 $rank_sql = mysqli_query($conn, "SELECT COUNT(*) AS total FROM grades");
 $total_students = mysqli_fetch_assoc($rank_sql)['total'];
 
@@ -24,7 +22,6 @@ WHERE average >= {$data['average']}
 ");
 $position = mysqli_fetch_assoc($position_sql)['pos'];
 
-/* COMMENT */
 $comment = ($data['status'] == "PASS")
     ? "Excellent performance. Keep it up!"
     : "Needs improvement. Work harder next term.";
@@ -59,14 +56,14 @@ $comment = ($data['status'] == "PASS")
     <th>Marks</th>
 </tr>
 
+<tr><td>Agriculture</td><td><?php echo $data['agriculture']; ?></td></tr>
+<tr><td>Bible_knowledge</td><td><?php echo $data['bible_knowledge']; ?></td></tr>
 <tr><td>Mathematics</td><td><?php echo $data['mathematics']; ?></td></tr>
 <tr><td>English</td><td><?php echo $data['english']; ?></td></tr>
-<tr><td>Biology</td><td><?php echo $data['biology']; ?></td></tr>
-<tr><td>Chemistry</td><td><?php echo $data['chemistry']; ?></td></tr>
-<tr><td>Physics</td><td><?php echo $data['physics']; ?></td></tr>
-<tr><td>Geography</td><td><?php echo $data['geography']; ?></td></tr>
-<tr><td>History</td><td><?php echo $data['history']; ?></td></tr>
-<tr><td>Computer</td><td><?php echo $data['computer']; ?></td></tr>
+<tr><td>Chichewa</td><td><?php echo $data['chichewa']; ?></td></tr>
+<tr><td>Social</td><td><?php echo $data['social']; ?></td></tr>
+<tr><td>Lifeskills</td><td><?php echo $data['lifeskills']; ?></td></tr>
+<tr><td>Expressive arts</td><td><?php echo $data['expressive_arts']; ?></td></tr>
 
 </table>
 

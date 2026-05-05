@@ -37,16 +37,16 @@ if (isset($_POST['update'])) {
     $student_id = $_POST['student_id'];
     $term = $_POST['term'];
 
-    $math = $_POST['mathematics'];
-    $eng = $_POST['english'];
-    $bio = $_POST['biology'];
-    $chem = $_POST['chemistry'];
-    $phy = $_POST['physics'];
-    $geo = $_POST['geography'];
-    $hist = $_POST['history'];
-    $comp = $_POST['computer'];
+        $agri = $_POST['agriculture'];
+        $bible = $_POST['bible_knowledge'];
+        $math = $_POST['mathematics'];
+        $eng = $_POST['english'];
+        $chi = $_POST['chichewa'];
+        $soc = $_POST['social'];
+        $life = $_POST['lifeskills'];
+        $arts = $_POST['expressive_arts'];
 
-    $total = $math + $eng + $bio + $chem + $phy + $geo + $hist + $comp;
+        $total = $agri + $bible + $math + $eng + $chi + $soc + $life + $arts;
     $average = $total / 8;
 
     if ($average >= 75) $grade = "A";
@@ -61,14 +61,14 @@ if (isset($_POST['update'])) {
         UPDATE grades SET
         student_id='$student_id',
         term='$term',
+        agriculture='$agri',
+        bible_knowledge='$bible',
         mathematics='$math',
         english='$eng',
-        biology='$bio',
-        chemistry='$chem',
-        physics='$phy',
-        geography='$geo',
-        history='$hist',
-        computer='$comp',
+        chichewa='$chi',
+        social='$soc',
+        lifeskills='$life',
+        expressive_arts='$arts',
         total='$total',
         average='$average',
         grade='$grade',
@@ -86,42 +86,37 @@ if (isset($_POST['save'])) {
     $student_id = $_POST['student_id'];
     $term = $_POST['term'];
 
-    // CHECK DUPLICATE
+    // Check duplicates
     $check = mysqli_query($conn, "SELECT * FROM grades WHERE student_id='$student_id' AND term='$term'");
 
     if (mysqli_num_rows($check) > 0) {
         $message = "This student already has grades for this term!";
     } else {
 
-        // SUBJECTS
+        $agri = $_POST['agriculture'];
+        $bible = $_POST['bible_knowledge'];
         $math = $_POST['mathematics'];
         $eng = $_POST['english'];
-        $bio = $_POST['biology'];
-        $chem = $_POST['chemistry'];
-        $phy = $_POST['physics'];
-        $geo = $_POST['geography'];
-        $hist = $_POST['history'];
-        $comp = $_POST['computer'];
+        $chi = $_POST['chichewa'];
+        $soc = $_POST['social'];
+        $life = $_POST['lifeskills'];
+        $arts = $_POST['expressive_arts'];
 
-        // TOTAL + AVERAGE
-        $total = $math + $eng + $bio + $chem + $phy + $geo + $hist + $comp;
+        $total = $agri + $bible + $math + $eng + $chi + $soc + $life + $arts;
         $average = $total / 8;
 
-        // GRADE LOGIC
         if ($average >= 75) $grade = "A";
         elseif ($average >= 65) $grade = "B";
         elseif ($average >= 50) $grade = "C";
         elseif ($average >= 40) $grade = "D";
         else $grade = "F";
 
-        // PASS / FAIL
         $status = ($average >= 50) ? "PASS" : "FAIL";
 
-        // INSERT
         $sql = "INSERT INTO grades 
-        (student_id, term, mathematics, english, biology, chemistry, physics, geography, history, computer, total, average, grade, status)
+        (student_id, term, agriculture, bible_knowledge, mathematics, english, chichewa, social, lifeskills, expressive_arts, total, average, grade, status) 
         VALUES 
-        ('$student_id','$term','$math','$eng','$bio','$chem','$phy','$geo','$hist','$comp','$total','$average','$grade','$status')";
+        ('$student_id','$term','$agri','$bible','$math','$eng','$chi','$soc','$life','$arts','$total','$average','$grade','$status')";
 
         if (mysqli_query($conn, $sql)) {
             $message = "Grades saved successfully!";
@@ -132,22 +127,22 @@ if (isset($_POST['save'])) {
 }
 
 
-   //FETCH STUDENTS
 $students = mysqli_query($conn, "
     SELECT student_id, first_name, last_name 
     FROM student
     ORDER BY first_name ASC, last_name ASC
 ");
 
-//fetch grades
+
 if ($user['role'] == "teacher") {
     $class = $user['class'];
 
     $grades = mysqli_query($conn, "
         SELECT g.*, s.first_name, s.last_name 
         FROM grades g
-        JOIN student s ON g.student_id = s.student_id
+        JOIN student s ON g.student_id = s.student_id       
         WHERE s.class='$class'
+        ORDER BY g.total DESC
     ");
 } else {
     $grades = mysqli_query($conn, "
@@ -166,6 +161,8 @@ if ($user['role'] == "teacher") {
 <title>Grades</title>
 
 <link rel="stylesheet" href="grades.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
 
 </head>
 
@@ -179,7 +176,7 @@ if ($user['role'] == "teacher") {
     </div>
 
    <div class="nav-right">
-    <button style="background: black" onclick="returnteacher()">GO BACK</button>
+    <button style="background: #27ae60 ; box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.507);" onclick="returnteacher()">GO BACK</button>
 </div>
 
 </div>
@@ -206,7 +203,6 @@ if ($user['role'] == "teacher") {
 
 <div class="grid">
 
-    <!-- STUDENT SELECT -->
    <select name="student_id" required>
     <option value="">Select Student</option>
 
@@ -244,22 +240,37 @@ if ($user['role'] == "teacher") {
         <option>3</option>
     </select>
 
-     <input type="number" name="mathematics" placeholder="Mathematics" required
+     <label for="agriculture">Agriculture</label>
+<input type="number" id="agriculture" name="agriculture" placeholder="Enter agriculture score" required
+value="<?php echo $edit_mode ? $edit_data['agriculture'] : ''; ?>">
+
+<label for="bible_knowledge">Bible knowledge</label>
+<input type="number" id="bible_knowledge" name="bible_knowledge" placeholder="Enter bible_knowledge score" required
+value="<?php echo $edit_mode ? $edit_data['bible_knowledge'] : ''; ?>">
+
+<label for="mathematics">Mathematics</label>
+<input type="number" id="mathematics" name="mathematics" placeholder="Enter mathematics score" required
 value="<?php echo $edit_mode ? $edit_data['mathematics'] : ''; ?>">
-<input type="number" name="english" placeholder="english" required
+
+<label for="english">English</label>
+<input type="number" id="english" name="english" placeholder="Enter english score" required
 value="<?php echo $edit_mode ? $edit_data['english'] : ''; ?>">
-<input type="number" name="biology" placeholder="biology" required
-value="<?php echo $edit_mode ? $edit_data['biology'] : ''; ?>">
-<input type="number" name="chemistry" placeholder="chemistry" required
-value="<?php echo $edit_mode ? $edit_data['chemistry'] : ''; ?>">
-<input type="number" name="physics" placeholder="physics" required
-value="<?php echo $edit_mode ? $edit_data['physics'] : ''; ?>">
-<input type="number" name="geography" placeholder="geography" required
-value="<?php echo $edit_mode ? $edit_data['geography'] : ''; ?>">
-<input type="number" name="history" placeholder="history" required
-value="<?php echo $edit_mode ? $edit_data['history'] : ''; ?>">
-<input type="number" name="computer" placeholder="computer" required
-value="<?php echo $edit_mode ? $edit_data['computer'] : ''; ?>">
+
+<label for="chichewa">Chichewa</label>
+<input type="number" id="chichewa" name="chichewa" placeholder="Enter chichewa score" required
+value="<?php echo $edit_mode ? $edit_data['chichewa'] : ''; ?>">
+
+<label for="social">Social</label>
+<input type="number" id="social" name="social" placeholder="Enter social score" required
+value="<?php echo $edit_mode ? $edit_data['social'] : ''; ?>">
+
+<label for="lifeskills">Life skills</label>
+<input type="number" id="lifeskills" name="lifeskills" placeholder="Enter lifeskills score" required
+value="<?php echo $edit_mode ? $edit_data['lifeskills'] : ''; ?>">
+
+<label for="expressive_arts">Expressive arts</label>
+<input type="number" id="expressive_arts" name="expressive_arts" placeholder="Enter expressive_arts score" required
+value="<?php echo $edit_mode ? $edit_data['expressive_arts'] : ''; ?>">
 
 </div>
 
@@ -283,6 +294,14 @@ value="<?php echo $edit_mode ? $edit_data['computer'] : ''; ?>">
     <th>ID</th>
     <th>Student</th>
     <th>Term</th>
+    <th>Agriculture</th>
+    <th>B.knowledge</th>
+    <th>Maths</th>
+    <th>English</th>
+    <th>Chichewa</th>
+    <th>Social</th>
+    <th>L.skills</th>
+    <th>E.arts</th>
     <th>Total</th>
     <th>Average</th>
     <th>Grade</th>
@@ -295,26 +314,34 @@ value="<?php echo $edit_mode ? $edit_data['computer'] : ''; ?>">
     <td><?php echo $g['grade_id']; ?></td>
     <td><?php echo $g['first_name']." ".$g['last_name']; ?></td>
     <td><?php echo $g['term']; ?></td>
+    <td><?php echo $g['agriculture']; ?></td>
+    <td><?php echo $g['bible_knowledge']; ?></td>
+    <td><?php echo $g['mathematics']; ?></td>
+    <td><?php echo $g['english']; ?></td>
+    <td><?php echo $g['chichewa']; ?></td>
+    <td><?php echo $g['social']; ?></td>
+    <td><?php echo $g['lifeskills']; ?></td>
+    <td><?php echo $g['expressive_arts']; ?></td>
     <td><?php echo $g['total']; ?></td>
     <td><?php echo $g['average']; ?></td>
     <td><?php echo $g['grade']; ?></td>
     <td><?php echo $g['status']; ?></td>
     <td><button onclick="generateReport(<?php echo $g['grade_id']; ?>)">
     Generate Report
-</button> &nbsp;&nbsp; <a href="grades.php?edit=<?php echo $g['grade_id']; ?>">
-    <button>Edit</button>
+</button> &nbsp;&nbsp; <br>
+<a href="grades.php?edit=<?php echo $g['grade_id']; ?>">
+    <button style="margin: 5px;">Edit</button>
 </a></td>
 </tr>
 <?php } ?>
 
 </table>
-
+ 
 </div>
 
 </div>
 
 
-<!-- modal -->
 <div id="reportModal" style="
 display:none;
 position:fixed;
@@ -333,7 +360,7 @@ overflow:auto;
 position:relative;
 ">
 
-<button onclick="closeModal()" style="float:right;">X</button>
+<button onclick="closeModal()" style="float:right; width: 5%;background-color:red;">X</button>
 
 <iframe id="reportFrame" style="width:100%; height:90%;"></iframe>
 

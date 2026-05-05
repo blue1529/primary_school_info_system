@@ -1,12 +1,15 @@
 body {
-    font-family: Arial;
+    font-family: 'Poppins', Arial, sans-serif;
     background: #c7cccf;
     margin: 0;
+    top: 0;
+    
 }
 .container {
     max-width: 1200px;
     margin: auto;
-    margin-top: 30px;
+    margin-top: 9%;
+    background: #f2f2f213;
 }
 
 
@@ -28,6 +31,7 @@ body {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
+    
 }
 
 input, select {
@@ -73,6 +77,9 @@ th {
     background: #008081;
     color: white;
 }
+ tr:hover {
+            background: skyblue;
+        }
 
 .report-btn {
     background: #2980b9;
@@ -91,10 +98,14 @@ th {
 
 .navbar {
     display: flex;
-    gap: 50%;
+    gap: 45%;
     background: #173459;
     color: white;
     padding: 10px 15px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
 }
 
 .nav-center {
@@ -109,8 +120,6 @@ th {
     border-radius: 5px;
     font-size: 15px;
     margin-top: 15px;
-}
-
-.nav-right button:hover {
-    background: #0f1310e8;
+     margin-right: 55px;
+     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.507);
 }

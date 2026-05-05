@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const emailInput = document.getElementById('email');
     const phoneInput = document.getElementById('phone');
+    const enrollInput = document.getElementById('enroll');
     
     if (emailInput) {
         const emailError = document.createElement('div');
@@ -39,4 +40,23 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    if (enrollInput) {
+    const enrollError = document.createElement('div');
+    enrollError.style.color = 'red';
+    enrollError.style.fontSize = '12px';
+    enrollError.style.marginTop = '5px';
+    enrollInput.parentNode.insertBefore(enrollError, enrollInput.nextSibling);
+    
+    enrollInput.addEventListener('input', function() {
+        const selectedDate = new Date(this.value);
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        
+        if (selectedDate > today) {
+            enrollError.textContent = 'Enrollment date cannot be in the future';
+        } else {
+            enrollError.textContent = '';
+        }
+    });
 });

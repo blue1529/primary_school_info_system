@@ -38,10 +38,10 @@ CREATE TABLE student (
 -- 3. Attendance (per term)
 CREATE TABLE Attendance (
     attendance_id INT PRIMARY KEY AUTO_INCREMENT,
-    student_id INT NOT NULL,
+    student_id INT NOT NULL UNIQUE,
     class_id INT NOT NULL,
     term_id INT NOT NULL,
-    date DATE NOT NULL,
+    date DATE NOT NULL UNIQUE,
     status VARCHAR(15) NOT NULL,         -- 'Present', 'Absent', 'Late'
     remarks VARCHAR(200),
     FOREIGN KEY (student_id) REFERENCES student(student_id) ON DELETE CASCADE

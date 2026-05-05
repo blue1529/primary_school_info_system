@@ -71,7 +71,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Check if it worked
     if ($result) {
-        echo "New teacher registered successfully!";
+        header("Location: success.php");
+        exit();    
     } else {
         echo "Error: " . mysqli_error($conn);
     }

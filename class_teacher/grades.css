@@ -9,7 +9,7 @@ body {
     max-width: 1200px;
     margin: auto;
     margin-top: 9%;
-    background: f2f2f2;
+    background: #f2f2f2;
 }
 
 
@@ -77,6 +77,9 @@ th {
     background: #008081;
     color: white;
 }
+ tr:hover {
+            background: skyblue;
+        }
 
 .report-btn {
     background: #2980b9;
@@ -118,8 +121,5 @@ th {
     font-size: 15px;
     margin-top: 15px;
      margin-right: 55px;
-}
-
-.nav-right button:hover {
-    background: #0f1310e8;
+     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.507);
 }

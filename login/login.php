@@ -40,8 +40,9 @@ if (isset($_POST['login'])) {
 <!DOCTYPE html>
 <html>
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
-body {      font-family: Arial; 
+body {     font-family: 'Poppins', Arial, sans-serif;
             background: url("blacknwwhite.jpg") no-repeat center/cover;
  }
 
@@ -50,7 +51,6 @@ body {      font-family: Arial;
             background: #008081; 
             padding:30px; 
             border-radius:10px;
-            margin-top: 100px;
             padding-right: 45px;
              }
 
@@ -84,7 +84,7 @@ button:hover {
 <h2>Login</h2>
 
 <form method="POST" autocomplete="off">
-    <input type="email" name="user_email_login" placeholder="Enter your mail" autocomplete="off" required>
+    <input type="email" name="user_email_login" placeholder="Enter your email" autocomplete="off" required>
 <input type="password" name="user_password_login" placeholder="Enter your password" autocomplete="new-password" required>
 
 <input type="number" name="class" placeholder="Class (None for Headmaster)"> <br> <hr>

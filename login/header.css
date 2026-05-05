@@ -15,6 +15,7 @@ body {
     left: 0;
     width: 100%;
     gap: 65%;;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.507);
 }
 
 .nav-center {
@@ -100,6 +101,7 @@ body {
     color: white;
     cursor: pointer;
     transition: 0.3s;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.507);
 }
 
 .nav-right button:hover {

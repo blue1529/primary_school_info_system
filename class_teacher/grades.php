@@ -114,7 +114,7 @@ if (isset($_POST['save'])) {
         $status = ($average >= 50) ? "PASS" : "FAIL";
 
         $sql = "INSERT INTO grades 
-        (student_id, term, agriculture, bible_knowledge, mathematics, english, chichewa, social, lifeskills, expressive_arts, total, average, grade, status)
+        (student_id, term, agriculture, bible_knowledge, mathematics, english, chichewa, social, lifeskills, expressive_arts, total, average, grade, status) 
         VALUES 
         ('$student_id','$term','$agri','$bible','$math','$eng','$chi','$soc','$life','$arts','$total','$average','$grade','$status')";
 
@@ -140,8 +140,9 @@ if ($user['role'] == "teacher") {
     $grades = mysqli_query($conn, "
         SELECT g.*, s.first_name, s.last_name 
         FROM grades g
-        JOIN student s ON g.student_id = s.student_id
+        JOIN student s ON g.student_id = s.student_id       
         WHERE s.class='$class'
+        ORDER BY g.total DESC
     ");
 } else {
     $grades = mysqli_query($conn, "
@@ -293,6 +294,14 @@ value="<?php echo $edit_mode ? $edit_data['expressive_arts'] : ''; ?>">
     <th>ID</th>
     <th>Student</th>
     <th>Term</th>
+    <th>Agriculture</th>
+    <th>B.knowledge</th>
+    <th>Maths</th>
+    <th>English</th>
+    <th>Chichewa</th>
+    <th>Social</th>
+    <th>L.skills</th>
+    <th>E.arts</th>
     <th>Total</th>
     <th>Average</th>
     <th>Grade</th>
@@ -305,20 +314,29 @@ value="<?php echo $edit_mode ? $edit_data['expressive_arts'] : ''; ?>">
     <td><?php echo $g['grade_id']; ?></td>
     <td><?php echo $g['first_name']." ".$g['last_name']; ?></td>
     <td><?php echo $g['term']; ?></td>
+    <td><?php echo $g['agriculture']; ?></td>
+    <td><?php echo $g['bible_knowledge']; ?></td>
+    <td><?php echo $g['mathematics']; ?></td>
+    <td><?php echo $g['english']; ?></td>
+    <td><?php echo $g['chichewa']; ?></td>
+    <td><?php echo $g['social']; ?></td>
+    <td><?php echo $g['lifeskills']; ?></td>
+    <td><?php echo $g['expressive_arts']; ?></td>
     <td><?php echo $g['total']; ?></td>
     <td><?php echo $g['average']; ?></td>
     <td><?php echo $g['grade']; ?></td>
     <td><?php echo $g['status']; ?></td>
     <td><button onclick="generateReport(<?php echo $g['grade_id']; ?>)">
     Generate Report
-</button> &nbsp;&nbsp; <a href="grades.php?edit=<?php echo $g['grade_id']; ?>">
-    <button>Edit</button>
+</button> &nbsp;&nbsp; <br>
+<a href="grades.php?edit=<?php echo $g['grade_id']; ?>">
+    <button style="margin: 5px;">Edit</button>
 </a></td>
 </tr>
 <?php } ?>
 
 </table>
-
+ 
 </div>
 
 </div>
@@ -342,7 +360,7 @@ overflow:auto;
 position:relative;
 ">
 
-<button onclick="closeModal()" style="float:right; width: 5%; background-color: red;">X</button>
+<button onclick="closeModal()" style="float:right; width: 5%;background-color:red;">X</button>
 
 <iframe id="reportFrame" style="width:100%; height:90%;"></iframe>
 

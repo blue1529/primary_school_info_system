@@ -37,16 +37,16 @@ if (isset($_POST['update'])) {
     $student_id = $_POST['student_id'];
     $term = $_POST['term'];
 
-    $math = $_POST['mathematics'];
-    $eng = $_POST['english'];
-    $bio = $_POST['biology'];
-    $chem = $_POST['chemistry'];
-    $phy = $_POST['physics'];
-    $geo = $_POST['geography'];
-    $hist = $_POST['history'];
-    $comp = $_POST['computer'];
+        $agri = $_POST['agriculture'];
+        $bible = $_POST['bible_knowledge'];
+        $math = $_POST['mathematics'];
+        $eng = $_POST['english'];
+        $chi = $_POST['chichewa'];
+        $soc = $_POST['social'];
+        $life = $_POST['lifeskills'];
+        $arts = $_POST['expressive_arts'];
 
-    $total = $math + $eng + $bio + $chem + $phy + $geo + $hist + $comp;
+        $total = $agri + $bible + $math + $eng + $chi + $soc + $life + $arts;
     $average = $total / 8;
 
     if ($average >= 75) $grade = "A";
@@ -61,14 +61,14 @@ if (isset($_POST['update'])) {
         UPDATE grades SET
         student_id='$student_id',
         term='$term',
+        agriculture='$agri',
+        bible_knowledge='$bible',
         mathematics='$math',
         english='$eng',
-        biology='$bio',
-        chemistry='$chem',
-        physics='$phy',
-        geography='$geo',
-        history='$hist',
-        computer='$comp',
+        chichewa='$chi',
+        social='$soc',
+        lifeskills='$life',
+        expressive_arts='$arts',
         total='$total',
         average='$average',
         grade='$grade',
@@ -258,7 +258,7 @@ value="<?php echo $edit_mode ? $edit_data['english'] : ''; ?>">
 
 <label for="chichewa">Chichewa</label>
 <input type="number" id="chichewa" name="chichewa" placeholder="Enter chichewa score" required
-value="<?php echo $edit_mode ? $edit_data['physics'] : ''; ?>">
+value="<?php echo $edit_mode ? $edit_data['chichewa'] : ''; ?>">
 
 <label for="social">Social</label>
 <input type="number" id="social" name="social" placeholder="Enter social score" required

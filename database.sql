@@ -11,7 +11,7 @@ CREATE TABLE Teacher (
     last_name VARCHAR(50) NOT NULL,
     phone VARCHAR(20) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
-    class VARCHAR(20) NOT NULL,
+    class_name VARCHAR(20) NOT NULL,
     subjects_taught VARCHAR(255) NOT NULL,
     gender VARCHAR(10) NOT NULL,
     date_of_start DATE NOT NULL,

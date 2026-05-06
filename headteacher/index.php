@@ -139,10 +139,12 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
                     echo "
                     <h3>TEACHERS</h3>
                     <div class='teachers_buttons'>
-                        <a href='../Teachers/teacher_registration/teacher_registration.php'>
+                        <a href='../teacher_registration/index.php'>
                             <button class='t_btn'>Register a Teacher</button>
                         </a>
-                        <button class='t_btn'>Assign Teacher</button>
+                        <a href='signup.php'>
+                            <button class='t_btn' >Assign Teacher</button>
+                        </a>
                     </div>
                     ";
                     break;

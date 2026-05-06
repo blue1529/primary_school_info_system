@@ -1,12 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Teacher Registration Form</title>
+<?php
+    
+    $PAGE_TITLE = "Teacher Registration";
+    $PAGE_CSS = "teacher_registration.css";
 
-    <link rel="stylesheet" href="teacher_registration.css">
-</head>
+    include "../include/header.php";
+?>
 
-<body>
 
     <!-- Inclue the header file  -->
 
@@ -92,6 +91,6 @@
 
 <!-- Include the footer file -->
 
-
+<script src="teacher_registration.js"></script>
 </body>
 </html>

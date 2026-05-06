@@ -65,12 +65,12 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
                 case 'standard8':
                     $num = str_replace('standard', '', $page); // extracts "1" through "8"
                     $result = $conn->query("
-                        SELECT s.first_name, s.last_name, g.mathematics, g.english,
-                               g.biology, g.chemistry, g.physics, g.geography,
-                               g.history, g.computer, g.total, g.average, g.grade, g.status
+                        SELECT s.first_name, s.last_name, g.agriculture, g.english,
+                               g.bible_knowledge, g.mathematics, g.chichewa, g.social,
+                               g.lifeskills, g.expressive_arts, g.total, g.average, g.grade, g.status
                         FROM grades g
                         JOIN student s ON g.student_id = s.student_id
-                        WHERE g.class = '$num'
+                        WHERE s.class = '$num'
                     ");
                     echo "<h3>STANDARD $num GRADES</h3>";
                     echo "<table border='1'>

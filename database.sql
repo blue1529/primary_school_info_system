@@ -83,3 +83,15 @@ CREATE TABLE users (
     password VARCHAR(255), -- must be hashed...
     role VARCHAR(20),   -- 'teacher'
 );
+
+CREATE TABLE fees (
+    student_id INT AUTO_INCREMENT PRIMARY KEY,
+    class INT,
+    term INT,
+    total_fee DECIMAL(10,2),
+    amount_paid DECIMAL(10,2),
+    balance DECIMAL(10,2),
+    payment_date DATE,
+    status VARCHAR(20),
+    FOREIGN KEY (student_id) REFERENCES student(student_id)
+);

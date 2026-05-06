@@ -51,7 +51,7 @@ if (isset($_POST['login'])) {
     } else {
             echo "<div style='background:red; color:black; padding:5px; border-radius:5px; margin:5px; width:fit-content;'>
 WRONG EMAIL AND PASSWORD
-</div>";
+</div>";    
         }
 }
 ?>

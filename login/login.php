@@ -51,7 +51,7 @@ if (isset($_POST['login'])) {
     } else {
             echo "<div style='background:red; color:black; padding:5px; border-radius:5px; margin:5px; width:fit-content;'>
 WRONG EMAIL AND PASSWORD
-</div>";    
+</div>";
         }
 }
 ?>
@@ -116,7 +116,7 @@ button:hover {
 
         <input type="password" name="user_password_login" placeholder="Enter your password" autocomplete="new-password" required>
 
-        <input type="number" name="class" id="classField" min="1" placeholder="Class (Only for Teacher)">
+        <input type="number" name="class" id="classField" placeholder="Class (Only for Teacher)">
         <br>
         <hr>
 

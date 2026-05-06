@@ -1,6 +1,8 @@
 <?php
 require_once __DIR__ . "/../include/db_connect.php";
 
+session_start();
+
 // Check if user is logged in, if not redirect to login page
  if (!isset($_SESSION['user'])) {
     header("Location: ../login/index.php");
@@ -8,7 +10,7 @@ require_once __DIR__ . "/../include/db_connect.php";
  }
 
 // Get user role from session for access control
-$user_role = $_SESSION['user']['role'] ?? 'headmaster'; // Default to headmaster
+$user_role = $_SESSION['user']['role'] ?? 'headteacher'; // Default to headmaster
 $user_name = $_SESSION['user']['name'] ?? 'User';
 
 // Get selected page

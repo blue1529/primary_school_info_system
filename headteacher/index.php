@@ -29,10 +29,10 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
         <!-- SIDEBAR -->
         <div class="parent-sidebar" id="sidebar">
             <ul class="child-sidebar">
-                <li><a href="index.php?page=dashboard" id="dashboard"><button class="side_btn">Dashboard</button></a></li>
-                <li><a href="index.php?page=student_details" id="std_details"><button class="side_btn">Student Details</button></a></li>
-                <li><a href="index.php?page=teachers" id="teachers"><button class="side_btn">Teachers</button></a></li>
-                <li><a href="index.php?page=student_grades" id="std_grades"><button class="side_btn">Student Grades</button></a></li>
+                <li><a href="./index.php?page=dashboard"><button class="side_btn">Dashboard</button></a></li>
+                <li><a href="./index.php?page=student_details"><button class="side_btn">Student Details</button></a></li>
+                <li><a href="./index.php?page=teachers"><button class="side_btn">Teachers</button></a></li>
+                <li><a href="./index.php?page=student_grades"><button class="side_btn">Student Grades</button></a></li>
             </ul>
         </div>
 
@@ -89,7 +89,7 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
 
                     echo "<h3>STANDARD $num GRADES</h3>";
 
-                    echo "<table border='1'>
+                    echo "<table class = 'student-table>
                              <tr>
                                 <th>Name</th>
                                 <th>Maths</th>

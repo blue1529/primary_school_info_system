@@ -39,6 +39,7 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
         <!-- MAIN CONTENT -->
         <div class="content" id="main_content">
 
+            
             <?php
             switch($page) {
 
@@ -139,7 +140,7 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
                     echo "
                     <h3>TEACHERS</h3>
                     <div class='teachers_buttons'>
-                        <a href='../Teachers/teacher_registration/teacher_registration.php'>
+                        <a href='../teacher_registration/index.php'>
                             <button class='t_btn'>Register a Teacher</button>
                         </a>
                         <button class='t_btn'>Assign Teacher</button>
@@ -228,8 +229,12 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
                 default:
                     echo "<img src='images/dashboard3.jpg' alt='dashboard image' class='dashboard-img'>";
                     break;
-            }
+            } 
+            
             ?>
+        
+
+            
 
         </div>
     </div>

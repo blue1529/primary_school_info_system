@@ -1,5 +1,5 @@
 <?php
-require("../db.php");
+require_once __DIR__ . "/../include/db_connect.php";
 session_start();
 
 header("Cache-Control: no-store, no-cache, must-revalidate");

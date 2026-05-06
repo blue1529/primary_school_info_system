@@ -60,7 +60,7 @@
         #reset:hover{
             background-color: #66c2ff;
         }
-
+        
     </style>
 </head>
 <body> 
@@ -172,6 +172,7 @@
     
     </fieldset><br>
   </form>
+<script src="validate.js"></script>
   <script>
 
     function nextStep() {

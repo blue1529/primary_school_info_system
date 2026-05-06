@@ -91,6 +91,6 @@
 
 <!-- Include the footer file -->
 
-
+<script src="teacher_registration.js"></script>
 </body>
 </html>

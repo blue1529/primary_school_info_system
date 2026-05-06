@@ -1,91 +1,97 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Registration Form</title>
+    <title>Teacher Registration Form</title>
 
-    <style>
-        body {
-            font-family: Arial;
-            background-color: #f2e6e6;
-        }
-
-        .container {
-            width: 300px;
-            margin: auto;
-            margin-top: 50px;
-        }
-
-        h2 {
-            text-align: center;
-        }
-
-        input, select {
-            width: 100%;
-            padding: 8px;
-            margin: 8px 0;
-            border-radius: 5px;
-            border: 1px solid #1ea4f7;
-        }
-
-        button {
-          width:100%; padding:10px;  border-radius:10px;
-            background: #0dad50; color:white; border:none; 
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.58);
-        }
-        input[type="radio"] {
-            width: auto;
-            margin: 0;
-        }
-    </style>
+    <link rel="stylesheet" href="teacher_registration.css">
 </head>
 
 <body>
 
-    <div>
-    <button style="width: 12%; background: #27ae60" onclick="returntohead()">GO BACK</button>
-</div>
+    <!-- Inclue the header file  -->
 
-<div class="container">
-    <h2 style="color: rgba(24, 20, 20, 0.865);">Registration Form</h2>
+<div class="form-container">
+    <h2>Teacher Registration Form</h2>
+    <div class="progress-bar">
+        <div class="progress-step active" data-step="1">1. Personal Info</div>
+        <div class="progress-step" data-step="2">2. Academic Info</div>
+        <div class="progress-step" data-step="3">3. Other Details</div>
+    </div>
 
-    <form onsubmit="return validateForm()">
+    <form action="register.php" method="POST" id="multiStepForm">
+        <!-- STEP 1 – Personal Details -->
+        <div class="step active" id="step1">
+            <h3>Personal Information</h3>
+            <label for="first_name">First Name: <span class="required">*</span></label>
+            <input type="text" id="first_name" name="first_name" required>
 
-        <label for="tfname">first name :</label><br>
-        <input type="text" id="name" required><br>
+            <label for="middle_name">Middle Name: <span class="required">*</span></label>
+            <input type="text" id="middle_name" name="middle_name">  <!-- Middle Name not required-->
 
-        <label for="tsname" >Surname :</label><br>
-        <input type="text" id="tSurname" required><br>
+            <label for="last_name">Last Name: <span class="required">*</span></label>
+            <input type="text" id="last_name" name="last_name" required>
 
-        <label for="phone_number" > Phone number :</label><br>
-        <input type="tel" id="phone_number" required><br>
+            <label for="phone_number">Phone Number: <span class="required">*</span></label>
+            <input type="tel" id="phone_number" name="phone_number" required>
 
-        <label for="email" > Email :</label><br>
-        <input type="email" id="email" placeholder=" enter email" required><br>
+            <label for="email">Email: <span class="required">*</span></label>
+            <input type="email" id="email" name="email" placeholder="sandrabanda@gmail.com" required>
 
-        <label>Gender :</label><br><br>
-        <input type="radio" name="gender" value="male" required>
-         Male &nbsp;&nbsp;
-        <input type="radio" name="gender" value="female">
-         Female
-         <br><br>
-        <button type="submit">Register</button>
+            <div class="button-group">
+                <button type="button" class="next-btn">Next</button>
+            </div>
+        </div>
 
+        <!-- STEP 2 – Academic Details -->
+        <div class="step" id="step2">
+            <h3>Academic Information</h3>
+            <label for="class_name">Class: <span class="required">*</span></label>
+            <input type="text" id="class_name" name="class_name" placeholder="e.g., Standard 4A" required>
+
+            <label for="subjects_taught">Subject: <span class="required">*</span></label>
+            <select id="subjects_taught" name="subjects_taught" required>
+                <option value="">-- Select an option --</option>
+                <option value="agriculture">Agriculture</option>
+                <option value="bible_knowledge">Bible Knowledge</option>
+                <option value="mathematics">Mathematics</option>
+                <option value="english">English</option>
+                <option value="chichewa">Chichewa</option>
+                <option value="social">Social</option>
+                <option value="life_skills">Life Skills</option>
+                <option value="expressive_arts">Expressive Arts</option>
+            </select>
+
+            <div class="button-group">
+                <button type="button" class="prev-btn">Previous</button>
+                <button type="button" class="next-btn">Next</button>
+            </div>
+        </div>
+
+        <!-- STEP 3 – Other Details + Submit -->
+        <div class="step" id="step3">
+            <h3>Other Details</h3>
+            <label for="gender">Gender: <span class="required">*</span></label>
+            <select id="gender" name="gender" required>
+                <option value="">--Select--</option>
+                <option>Male</option>
+                <option>Female</option>
+            </select>
+
+            <label for="place_of_residence">Place of Residence: <span class="required">*</span></label>
+            <input type="text" id="place_of_residence" name="place_of_residence" placeholder="e.g Blantyre, Chilomoni" required>
+
+            <div class="button-group">
+                <button type="button" class="prev-btn">Previous</button>
+                <button type="submit" id="submitBtn">Register</button>
+            </div>
+        </div>
     </form>
 </div>
 
-<script>
-function validateForm() {
-    let phone_number = document.getElementById("phone_number").value;
-
-    alert("Form submitted successfully!");
-    return true;
-}
 
 
-function returntohead() {
-    window.location.href = "../headteacher/index.php";
-}
-</script>
+<!-- Include the footer file -->
+
 
 </body>
 </html>

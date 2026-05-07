@@ -1,5 +1,5 @@
 <?php
-    require("../db.php");
+    require "../include/db_connect.php";
 
 
     if (isset($_GET['delete'])) {

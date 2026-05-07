@@ -39,6 +39,7 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
         <!-- MAIN CONTENT -->
         <div class="content" id="main_content">
 
+            
             <?php
             switch($page) {
 
@@ -230,8 +231,12 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
                 default:
                     echo "<img src='images/dashboard3.jpg' alt='dashboard image' class='dashboard-img'>";
                     break;
-            }
+            } 
+            
             ?>
+        
+
+            
 
         </div>
     </div>

@@ -20,9 +20,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $parent_phone = $_POST['phone'];
 
    if (!filter_var($parent_email, FILTER_VALIDATE_EMAIL)) {
-    header("Location: studentreg.html?error=invalid_email");
+    header("Location: studentreg.php?error=invalid_email");
     exit;
 }
+ if (strtotime($dob) > strtotime(date('Y-m-d'))) {
+        header("Location: studentreg.php?error=invalid_dob");
+        exit;
+    }
+
+    $dob_timestamp = strtotime($dob);
+    $min_age_timestamp = strtotime('-3 years');
+    if ($dob_timestamp > $min_age_timestamp) {
+        header("Location: studentreg.php?error=too_young");
+        exit;
+    }
 
     $sql = "INSERT INTO student (first_name, middle_name, last_name, enrollment_date,
      date_of_birth, class, gender, special_needs, relationship,
@@ -30,10 +41,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             VALUES ('$first_name', '$middle_name', '$last_name', '$enrollment_date', '$dob', '$class', '$gender', '$special_needs', '$relationship', '$parent_fname', '$parent_lname', '$parent_email', '$parent_phone', '$paddress')";
     
     if ($conn->query($sql) === TRUE) {
-        header("Location: studentreg.html?success=1");
+        header("Location: studentreg.php?success=1");
         exit;
     } else {
-        header("Location: studentreg.html?error=1");
+        header("Location: studentreg.php?error=1");
         exit;
     }
     

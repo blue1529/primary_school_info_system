@@ -35,10 +35,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
 
-    $sql = "INSERT INTO student (first_name, middle_name, last_name, enrollment_date,
-     date_of_birth, class, gender, special_needs, relationship,
-     parent_fname, parent_lname, parent_email, parent_phone, address) 
-            VALUES ('$first_name', '$middle_name', '$last_name', '$enrollment_date', '$dob', '$class', '$gender', '$special_needs', '$relationship', '$parent_fname', '$parent_lname', '$parent_email', '$parent_phone', '$paddress')";
+    $sql = "INSERT INTO student (first_name, middle_name, last_name, gender,
+     date_of_birth, parent_fname, parent_lname, parent_phone, parent_email, class, enrollment_date, special_needs, address)
+            VALUES ('$first_name', '$middle_name', '$last_name', '$gender', '$dob','$parent_fname',  '$parent_lname', '$parent_phone', '$parent_email', '$class','$enrollment_date', '$special_needs', '$paddress')";
     
     if ($conn->query($sql) === TRUE) {
         header("Location: studentreg.php?success=1");

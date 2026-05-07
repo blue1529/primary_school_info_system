@@ -1,20 +1,20 @@
 document.addEventListener('DOMContentLoaded', function () {
 
     // ── Inputs ──────────────────────────────────────────────────────────────
-    const fnameInput  = document.getElementById('fname');
-    const mnameInput  = document.getElementById('mname');
-    const snameInput  = document.getElementById('sname');
+    const fnameInput = document.getElementById('fname');
+    const mnameInput = document.getElementById('mname');
+    const snameInput = document.getElementById('sname');
     const pfnameInput = document.getElementById('pfname');
     const psnameInput = document.getElementById('psname');
-    const emailInput  = document.getElementById('email');
-    const phoneInput  = document.getElementById('phone');
+    const emailInput = document.getElementById('email');
+    const phoneInput = document.getElementById('phone');
     const enrollInput = document.getElementById('enroll');
-    const dobInput    = document.getElementById('dob');
+    const dobInput = document.getElementById('dob');
 
     const urlParams = new URLSearchParams(window.location.search);
-    const error     = urlParams.get('error');
-    const success   = urlParams.get('success');
-    
+    const error = urlParams.get('error');
+    const success = urlParams.get('success');
+
     function attachError(input) {
         if (!input) return null;
         const wrapper = document.createElement('span');
@@ -35,8 +35,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function setValidity(input, errorDiv, message) {
-        errorDiv.textContent    = message;
-        input.style.borderColor = message ? 'red' : '#66c2ff';
+        errorDiv.textContent = message;
+        input.style.borderColor = message ? 'red' : '#0dad50';
     }
 
     function attachTrim(input) {
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (phoneInput) {
         const phoneError = attachError(phoneInput);
         phoneInput.addEventListener('input', function () {
-            const phone      = this.value;
+            const phone = this.value;
             const digitsOnly = phone.replace(/[^0-9]/g, '');
             let msg = '';
             if (phone && !/^[0-9+\-\s]+$/.test(phone)) {
@@ -88,8 +88,8 @@ document.addEventListener('DOMContentLoaded', function () {
     if (enrollInput) {
         const enrollError = attachError(enrollInput);
         enrollInput.addEventListener('input', function () {
-            const selected = new Date(this.value);
-            const today    = new Date(); today.setHours(0, 0, 0, 0);
+            const selected = this.value;
+            const today = new Date().toISOString().split('T')[0];
             setValidity(this, enrollError,
                 selected > today ? 'Enrollment date cannot be in the future' : ''
             );
@@ -99,20 +99,20 @@ document.addEventListener('DOMContentLoaded', function () {
     if (dobInput) {
         const dobError = attachError(dobInput);
         dobInput.addEventListener('change', function () {
-            const selected   = new Date(this.value);
-            const today      = new Date(); today.setHours(0, 0, 0, 0);
+            const selected = new Date(this.value);
+            const today = new Date(); today.setHours(0, 0, 0, 0);
             const minAgeDate = new Date();
             minAgeDate.setFullYear(today.getFullYear() - 3);
             let msg = '';
-            if (selected > today)           msg = 'Date of birth cannot be in the future';
+            if (selected > today) msg = 'Date of birth cannot be in the future';
             else if (selected > minAgeDate) msg = 'Student must be at least 3 years old';
             setValidity(this, dobError, msg);
         });
     }
-    
+
     const originalNextStep = window.nextStep;
     window.nextStep = function () {
-        const step1     = document.getElementById('step1');
+        const step1 = document.getElementById('step1');
         const errorDivs = step1 ? step1.querySelectorAll('div[style*="position:absolute"]') : [];
         for (let div of errorDivs) {
             if (div.textContent.trim() !== '') {
@@ -123,11 +123,11 @@ document.addEventListener('DOMContentLoaded', function () {
         if (typeof originalNextStep === 'function') originalNextStep();
     };
 
-    
+
     const form = document.querySelector('form');
     if (form) {
         form.addEventListener('submit', function (e) {
-            const step2     = document.getElementById('step2');
+            const step2 = document.getElementById('step2');
             const errorDivs = step2 ? step2.querySelectorAll('div[style*="position:absolute"]') : [];
             for (let div of errorDivs) {
                 if (div.textContent.trim() !== '') {
@@ -146,11 +146,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (error) {
         const messages = {
-            'invalid_email'       : 'Invalid email address format!',
-            'invalid_enroll_date' : 'Enrollment date cannot be in the future!',
-            'invalid_dob'         : 'Date of birth cannot be in the future!',
-            'too_young'           : 'Student must be at least 3 years old!',
-            '1'                   : 'Registration failed! Please try again.',
+            'invalid_email': 'Invalid email address format!',
+            'invalid_enroll_date': 'Enrollment date cannot be in the future!',
+            'invalid_dob': 'Date of birth cannot be in the future!',
+            'too_young': 'Student must be at least 3 years old!',
+            '1': 'Registration failed! Please try again.',
         };
         alert(messages[error] || 'Registration failed! ' + error);
         window.history.replaceState({}, document.title, window.location.pathname);

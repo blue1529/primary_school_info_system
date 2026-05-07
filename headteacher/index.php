@@ -10,7 +10,7 @@ if (!isset($_SESSION['user'])) {
 }
 
 // Get user role from session for access control
-$user_role = $_SESSION['user']['role'] ?? 'headteacher'; // Default to headmaster
+$user_role = $_SESSION['user']['role'] ?? 'headteacher';
 $user_name = $_SESSION['user']['name'] ?? 'User';
 
 // Get selected page
@@ -42,6 +42,10 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
                 <li><a href="./index.php?page=teachers"><button class="side_btn">Teachers</button></a></li>
                 <li><a href="./index.php?page=student_grades"><button class="side_btn">Student Grades</button></a></li>
             </ul>
+
+            <div class="sidebar-footer">
+                <a href="logout.php"><button class="side_btn logout_btn"> Logout</button></a>
+            </div>
         </div>
 
         <!-- MAIN CONTENT -->
@@ -139,6 +143,10 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
                     }
 
                     echo "</table>";
+                    echo "<div class='pdf-buttons'>
+                          <a href='generate_grades_pdf.php?standard=$num&action=view' target='_blank' class='pdf-btn pdf-view'>📄 View PDF</a>
+                         <a href='generate_grades_pdf.php?standard=$num&action=download' class='pdf-btn pdf-download'>⬇️ Download PDF</a>
+                         </div>";
                     break;
 
                 /* ======================
@@ -239,7 +247,7 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
                 default:
                     echo "<img src='images/dashboard3.jpg' alt='dashboard image' class='dashboard-img'>";
                     break;
-            } 
+            }
             ?>
 
         </div>

@@ -1,0 +1,106 @@
+body { font-family:Poppins; background: lightgrey; color:black;
+    padding: 50px;
+
+
+
+ }
+
+.cards {
+display:flex;
+gap:10px;
+margin-bottom:20px;
+}
+.cards div {
+background:#008081;
+padding:15px;
+border-radius:10px;
+}
+
+        tr:hover {
+            background: skyblue;
+        }
+    th {
+            background: #008081;
+            color: white;
+        }
+
+form input, select {
+padding:8px;
+margin:5px;
+border-radius:8px;
+border:none;
+}
+
+button {
+padding:8px;
+background:#0dad50;
+color:white;
+border:none;
+border-radius:8px;
+}
+
+table {
+width:100%;
+background:white;
+color:black;
+border-collapse:collapse;
+margin-top:20px;
+}
+th, td {
+padding:10px;
+border:1px solid #ccc;
+}
+
+#modal {
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.7);
+}
+.modal-content {
+background:white;
+color:black;
+width:300px;
+margin:100px auto;
+padding:20px;
+}
+
+
+.cards {
+    max-width: 1200px;
+    margin: auto;
+    margin-top: 9%;
+    background: #f2f2f213;
+}
+
+
+.navbar {
+    display: flex;
+    gap: 45%;
+    background: #173459;
+    color: white;
+    padding: 10px 15px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.nav-center {
+    flex: 1;
+}
+
+.nav-right button {
+    color: white;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 15px;
+    margin-top: 15px;
+     margin-right: 55px;
+     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.507);
+}

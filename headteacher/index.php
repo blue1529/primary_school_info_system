@@ -8,23 +8,10 @@ require_once __DIR__ . "/../include/db_connect.php";
 // }
 
 // Get selected page
-//$page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
-
-
-//.......................................GROK SESSION.......................................
-require_once __DIR__ . "/../include/db_connect.php";
-
-session_start();
-
-// Protect the page - redirect to login if not logged in as headmaster
-if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== 'headmaster') {
-    header("Location: ../login.php");
-    exit();
-}
-
-// Get selected page
 $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
-?>  
+
+
+?>
 
 
 <!DOCTYPE html>

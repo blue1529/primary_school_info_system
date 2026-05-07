@@ -48,7 +48,7 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
             </ul>
 
             <div class="sidebar-footer">
-                <a href="logout.php"><button class="side_btn logout_btn"> Logout</button></a>
+                <a href="../login/login.php"><button class="side_btn logout_btn"> Logout</button></a>
             </div>
         </div>
 

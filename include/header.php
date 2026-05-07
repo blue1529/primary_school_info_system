@@ -24,8 +24,8 @@
       <ul class="nav-list">
         <li><a href="../login/login.php">Home</a></li>
         <li><a href="../login/login.php">Head teacher</a></li>
-        <li><a href="../teacher/register.php">Class teacher</a></li>
-        <li><a href="">Accountant</a></li>
+        <li><a href="../index.php">Class teacher</a></li>
+        <li><a href="../treasurer/index.php">Accountant</a></li>
       </ul>
     </nav>
 </header>

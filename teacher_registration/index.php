@@ -7,7 +7,7 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== 'headmaster') {
     exit();
 }
 
-$user_id = $_SESSION['user']['id']; 
+// $user_id = $_SESSION['user']['id']; 
 
 $PAGE_TITLE = "Teacher Registration";
 $PAGE_CSS = "teacher_registration.css";

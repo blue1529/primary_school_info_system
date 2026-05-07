@@ -107,7 +107,7 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
 
                     echo "<h3>STANDARD $num GRADES</h3>";
 
-                    echo "<table class = 'student-table>
+                    echo "<table class = 'student-table'>
                              <tr>
                                 <th>Name</th>
                                 <th>Maths</th>
@@ -206,7 +206,7 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
 
                     echo "<h3>STANDARD $num STUDENT DETAILS</h3>";
 
-                    echo "<table border='1'>
+                    echo "<table class = 'student-table'>
                             <tr>
                                 <th>Name</th>
                                 <th>Gender</th>

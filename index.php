@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zenith Academy</title>
-    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="login/header.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -41,7 +41,7 @@
 
     
 function login() {
-    window.location.href = "login.php";
+    window.location.href = " login/login.php";
 }
 
 

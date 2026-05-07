@@ -3,7 +3,7 @@ require("../db.php");
 session_start();
 
 if (!isset($_SESSION['user']) || $_SESSION['user']['role'] != "treasurer") {
-    header("Location: ../login/index.php");
+    header("Location: ../login/login.php");
     exit();
 }
 
@@ -76,7 +76,7 @@ ORDER BY f.payment_date DESC
 <div class="navbar">
 
     <div class="nav-center">
-      <h2>Treasurer dashboard</h2>
+      <h2>Accountant dashboard</h2>
     </div>
 
     <div class="nav-right">

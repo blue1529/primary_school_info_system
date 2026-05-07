@@ -126,7 +126,7 @@ button:hover {
 // };
 
 function returnhome() {
-    window.location.href = "index.php";
+    window.location.href = "../index.php";
 }
 
 window.onload = function () {

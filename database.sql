@@ -7,6 +7,7 @@ USE primary_school_info_system;
 CREATE TABLE Teacher (
     teacher_id INT PRIMARY KEY AUTO_INCREMENT,
     first_name VARCHAR(50) NOT NULL,
+    
     middle_name VARCHAR(50),
     last_name VARCHAR(50) NOT NULL,
     phone VARCHAR(20) NOT NULL,

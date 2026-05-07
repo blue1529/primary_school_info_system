@@ -8,6 +8,10 @@ session_start();
     header("Location: ../login/login.php");
      exit();
  }
+if (!isset($_SESSION['user'])) {
+    header("Location: ../login/index.php");
+    exit();
+}
 
 // Get user role from session for access control
 $user_role = $_SESSION['user']['role'] ?? 'headteacher'; // Default to headmaster
@@ -16,9 +20,7 @@ $user_name = $_SESSION['user']['name'] ?? 'User';
 // Get selected page
 $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
 
-
 ?>
-
 
 <!DOCTYPE html>
 <html>
@@ -49,7 +51,6 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
         <!-- MAIN CONTENT -->
         <div class="content" id="main_content">
 
-            
             <?php
             switch($page) {
 
@@ -71,7 +72,6 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
                     </div>
                     ";
                     break;
-
 
                 /* ======================
                    STANDARD GRADES PAGES
@@ -98,9 +98,12 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
                         WHERE s.class = '$num'
                     ");
 
+                    echo "<div class='page-header'>";
+                    echo "<a href='index.php?page=student_grades' class='back-btn'>← Back to Grades Menu</a>";
                     echo "<h3>STANDARD $num GRADES</h3>";
+                    echo "</div>";
 
-                    echo "<table class = 'student-table'>
+                    echo "<table class='student-table'>
                              <tr>
                                 <th>Name</th>
                                 <th>Maths</th>
@@ -142,7 +145,6 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
                     echo "</table>";
                     break;
 
-
                 /* ======================
                    TEACHERS
                 ====================== */
@@ -154,12 +156,11 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
                             <button class='t_btn'>Register a Teacher</button>
                         </a>
                         <a href='signup.php'>
-                            <button class='t_btn' >Assign Teacher</button>
+                            <button class='t_btn'>Assign Teacher</button>
                         </a>
                     </div>
                     ";
                     break;
-
 
                 /* ======================
                    STUDENT DETAILS MENU
@@ -180,7 +181,6 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
                     ";
                     break;
 
-
                 /* ======================
                    STUDENT DETAILS PAGES
                 ====================== */
@@ -197,9 +197,12 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
 
                     $result = $conn->query("SELECT * FROM student WHERE class = '$num'");
 
+                    echo "<div class='page-header'>";
+                    echo "<a href='index.php?page=student_details' class='back-btn'>← Back to Student Details Menu</a>";
                     echo "<h3>STANDARD $num STUDENT DETAILS</h3>";
+                    echo "</div>";
 
-                    echo "<table class = 'student-table'>
+                    echo "<table class='student-table'>
                             <tr>
                                 <th>Name</th>
                                 <th>Gender</th>
@@ -233,7 +236,6 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
                     echo "</table>";
                     break;
 
-
                 /* ======================
                    DASHBOARD
                 ====================== */
@@ -242,11 +244,7 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
                     echo "<img src='images/dashboard3.jpg' alt='dashboard image' class='dashboard-img'>";
                     break;
             } 
-            
             ?>
-        
-
-            
 
         </div>
     </div>

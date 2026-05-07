@@ -4,6 +4,10 @@ require_once __DIR__ . "/../include/db_connect.php";
 session_start();
 
 // Check if user is logged in, if not redirect to login page
+ if (!isset($_SESSION['user'])) {
+    header("Location: ../login/login.php");
+     exit();
+ }
 if (!isset($_SESSION['user'])) {
     header("Location: ../login/index.php");
     exit();

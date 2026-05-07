@@ -265,7 +265,7 @@ new Chart(document.getElementById("chart3"), {
 });
 
 function addStudent() {
-    window.location.href = "../students/studentreg.html";
+    window.location.href = "../students/studentreg.php";
 }
 
 

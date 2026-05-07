@@ -2,18 +2,22 @@
 require_once __DIR__ . "/../include/db_connect.php";
 
 // Check if user is logged in, if not redirect to login page
-// if (!isset($_SESSION['user'])) {
-//     header("Location: ../login/index.php");
-//     exit();
-// }
+ if (!isset($_SESSION['user'])) {
+    header("Location: ../login/index.php");
+     exit();
+ }
 
-// // Get user role from session for access control
-// $user_role = $_SESSION['user']['role'] ?? 'headmaster'; // Default to headmaster
-// $user_name = $_SESSION['user']['name'] ?? 'User';
+// Get user role from session for access control
+$user_role = $_SESSION['user']['role'] ?? 'headmaster'; // Default to headmaster
+$user_name = $_SESSION['user']['name'] ?? 'User';
 
 // Get selected page
 $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
+
+
 ?>
+
+
 <!DOCTYPE html>
 <html>
 <head>

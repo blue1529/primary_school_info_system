@@ -17,7 +17,7 @@
 
     <div class="nav-right" id="navMenu">
         <button onclick="login()">Log-in</button>
-        </div>
+        
 
     </div>
 

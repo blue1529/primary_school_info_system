@@ -52,7 +52,7 @@ body {
 
 .hero {
     height: 100vh;
-    background: url("bluehat.jpg") no-repeat center/cover;
+    background: url("back.jpg") no-repeat center/cover;
     display: flex;
     align-items: center;
     font-family: 'Poppins', Arial, sans-serif;

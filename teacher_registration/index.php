@@ -1,21 +1,19 @@
 <?php
-    require_once __DIR__ . "/../include/db_connect.php";
-    session_start();
+require_once __DIR__ . "/../include/db_connect.php";
+session_start();
 
-    // Check if user is logged in and has the correct role
-    if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'headteacher') {
-        // Not a headteacher – redirect to login or show error
-        header('Location: ../login/login.php');
-        exit();
-    }
-    $PAGE_TITLE = "Teacher Registration";
-    $PAGE_CSS = "teacher_registration.css";
+if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== 'headmaster') {
+    header('Location: ../login/login.php');
+    exit();
+}
 
-    include "../include/header.php";
+$user_id = $_SESSION['user']['id']; 
+
+$PAGE_TITLE = "Teacher Registration";
+$PAGE_CSS = "teacher_registration.css";
+
+include "../include/header.php";
 ?>
-
-    <!-- Inclue the header file  -->
-
 <div class="form-container">
     <h2>Teacher Registration Form</h2>
     <div class="progress-bar">

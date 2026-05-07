@@ -14,7 +14,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    gap: 65%;;
+    gap: 70%;;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.507);
 }
 
@@ -34,7 +34,6 @@ body {
 
 .nav-right {
     display: flex;
-    gap: 20px;
 }
 
 .nav-right button {

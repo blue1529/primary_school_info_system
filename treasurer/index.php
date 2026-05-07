@@ -3,7 +3,7 @@ require("../db.php");
 session_start();
 
 if (!isset($_SESSION['user']) || $_SESSION['user']['role'] != "treasurer") {
-    header("Location: ../login.php");
+    header("Location: ../login/index.php");
     exit();
 }
 
@@ -16,7 +16,7 @@ if (isset($_POST['save'])) {
     $date = $_POST['payment_date'];
 
     $balance = $total_fee - $amount_paid;
-    $status = ($balance <= 0) ? "Paid" : "Unpaid";
+    $status = ($balance <= 0) ? "Paid" : "Outstanding balance!";
 
     mysqli_query($conn, "
     INSERT INTO fees (student_id, class, term, total_fee, amount_paid, balance, payment_date, status)
@@ -67,6 +67,7 @@ ORDER BY f.payment_date DESC
 <html>
 <head>
 <link rel="stylesheet" href="treasurer.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -90,8 +91,8 @@ ORDER BY f.payment_date DESC
 <div>Total Today: <?php echo $totalToday; ?></div>
 <div>Outstanding: <?php echo $totalOutstanding; ?></div>
 <div>Paid Students: <?php echo $paidCount; ?></div>
-<div>Defaulters: <?php echo $unpaidCount; ?></div>
-</div>
+<div>Students with balance: <?php echo $unpaidCount; ?></div>
+</div> <br> <br>
 
 <h3>Add Payment</h3>
 <form method="POST">
@@ -110,14 +111,14 @@ ORDER BY f.payment_date DESC
 <input type="number" name="amount_paid" placeholder="Amount Paid" required>
 <input type="date" name="payment_date" required>
 
-<button name="save">Save Payment</button>
+<button name="save">Save Payment</button> <br> <br>
 </form>
-
+<!-- 
 <form method="GET">
 <input type="number" name="class" placeholder="Filter Class">
 <input type="number" name="term" placeholder="Filter Term">
 <button>Filter</button>
-</form>
+</form> -->
 
 <h3>Payment History</h3>
 <table>
@@ -154,7 +155,7 @@ Receipt
 
 </tr>
 <?php } ?>
-</table>
+</table> <br> <br>
 
 <h3>Students with balance</h3>
 <table>

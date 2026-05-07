@@ -48,7 +48,11 @@ if (isset($_POST['login'])) {
         } else {
             echo "Unknown role";
         }
-    }
+    } else {
+            echo "<div style='background:red; color:black; padding:5px; margin:5px;font-weight: bold; border-radius:5px; width:fit-content;'>
+WRONG EMAIL AND PASSWORD
+</div>";
+        }
 }
 ?>
 

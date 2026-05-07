@@ -1,9 +1,10 @@
 <?php 
 
-$servername = "localhost";
-$username = "root"; 
-$password = "";
-$dbname = "primary_school_info_system";
+// 1. Connect to the database (change these values to match your setup)
+$servername = "localhost"; // usually "localhost"
+$username = "root"; // your database username
+$password = "melania1529"; // your database password
+$dbname = "primary_school_info_system"; // your database name
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 

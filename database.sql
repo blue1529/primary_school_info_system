@@ -12,7 +12,7 @@ CREATE TABLE Teacher (
     last_name VARCHAR(50) NOT NULL,
     phone VARCHAR(20) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
-    class VARCHAR(20) NOT NULL,
+    class_name VARCHAR(20) NOT NULL,
     subjects_taught VARCHAR(255) NOT NULL,
     gender VARCHAR(10) NOT NULL,
     date_of_start DATE NOT NULL,
@@ -39,10 +39,10 @@ CREATE TABLE student (
 -- 3. Attendance (per term)
 CREATE TABLE Attendance (
     attendance_id INT PRIMARY KEY AUTO_INCREMENT,
-    student_id INT NOT NULL,
+    student_id INT NOT NULL UNIQUE,
     class_id INT NOT NULL,
     term_id INT NOT NULL,
-    date DATE NOT NULL,
+    date DATE NOT NULL UNIQUE,
     status VARCHAR(15) NOT NULL,         -- 'Present', 'Absent', 'Late'
     remarks VARCHAR(200),
     FOREIGN KEY (student_id) REFERENCES student(student_id) ON DELETE CASCADE
@@ -85,4 +85,16 @@ CREATE TABLE users (
     password VARCHAR(255), -- must be hashed...
     role VARCHAR(20),   -- 'teacher'
     class INT
+);
+
+CREATE TABLE fees (
+    student_id INT AUTO_INCREMENT PRIMARY KEY,
+    class INT,
+    term INT,
+    total_fee DECIMAL(10,2),
+    amount_paid DECIMAL(10,2),
+    balance DECIMAL(10,2),
+    payment_date DATE,
+    status VARCHAR(20),
+    FOREIGN KEY (student_id) REFERENCES student(student_id)
 );

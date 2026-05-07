@@ -17,15 +17,6 @@
 
     <div class="nav-right" id="navMenu">
         <button onclick="login()">Log-in</button>
-
-        <div class="dropdown">
-            <button>Contacts</button>
-
-            <div class="dropdown-content">
-                <p><b>Headteacher:</b> 0991112222</p>
-                <p><b>Deputy:</b> 0883334444</p>
-                <p><b>Treasurer:</b> 0775556666</p>
-            </div>
         </div>
 
     </div>

@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
-    overflow: hidden;
+    overflow: auto;
     font-family: 'Poppins', Arial, sans-serif;
 }
 
@@ -19,7 +19,9 @@ body {
     background-image: linear-gradient(to right, #fbfcff, #fcfcfd);
     
 }
-
+.content {
+    min-width: 0;
+}
 .header {
     display: flex;
     align-items: center;
@@ -28,7 +30,7 @@ body {
     flex-shrink: 0;
      display: flex;
     justify-content: space-between;
-    color: white;
+    color: rgb(255, 255, 255);
     padding: 10px 15px;
 }
 
@@ -190,4 +192,32 @@ body {
     font-size: 15px;
     margin-left: 10px;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.507);
+}
+table.student-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    margin-top: 20px;
+    margin-left: 200px;
+    margin-right: 180px ;
+}
+
+table.student-table th,
+table.student-table td {
+    border: 2px solid #333;
+    padding: 10px;
+    text-align: left;
+}
+
+table.student-table th {
+    background: #173459;
+    color: white;
+}
+
+table.student-table tr:nth-child(even) {
+    background: #f2f2f2;
+}
+
+table.student-table tr:hover {
+    background: #dce8ff;
 }

@@ -1,5 +1,5 @@
 <?php
-require("../db.php");
+require_once __DIR__ . "/../include/db_connect.php";
 
 
 //add ku teachers too
@@ -265,7 +265,7 @@ new Chart(document.getElementById("chart3"), {
 });
 
 function addStudent() {
-    window.location.href = "../students/studentreg.html";
+    window.location.href = "../students/studentreg.php";
 }
 
 

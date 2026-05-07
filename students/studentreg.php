@@ -1,3 +1,6 @@
+<?php
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,9 +24,9 @@
             margin: 7% ;
         }
        input{
-          border-radius: 50px;
-            padding: 10px 20px;
-            border: 2px solid #66c2ff;
+          border-radius: 5px;
+            padding: 7px;
+            border: 2px solid #1a1d20;
             background-color: white;
             outline: none;
        }
@@ -57,7 +60,7 @@
         #reset:hover{
             background-color: #66c2ff;
         }
-
+        
     </style>
 </head>
 <body> 
@@ -169,6 +172,7 @@
     
     </fieldset><br>
   </form>
+<script src="validate.js"></script>
   <script>
 
     function nextStep() {
